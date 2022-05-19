@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: db904bd86c46108418183a14ee9a20b9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _stockPrice: {fileID: 11400000, guid: 6a12c80b6c35d094992c6f9131f39635, type: 2}
+  - _targetXTime: {fileID: 11400000, guid: de1be534e8650754d83f10b4e942b8cd, type: 2}
+  - _id: {instanceID: 0}
+  - _date: {instanceID: 0}
+  - _invested: {instanceID: 0}
+  - _price: {instanceID: 0}
+  - _stockAmount: {instanceID: 0}
+  - _gainAmount: {instanceID: 0}
+  - _gainTotal: {instanceID: 0}
+  - _gain: {instanceID: 0}
+  - _sellPrice: {instanceID: 0}
+  - _btcSellPrice: {instanceID: 0}
+  - _platform: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
