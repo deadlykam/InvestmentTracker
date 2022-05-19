@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3866306268471839695}
   - component: {fileID: 3866306268471839693}
   - component: {fileID: 3866306268471839694}
+  - component: {fileID: 5738208384400938584}
   m_Layer: 5
   m_Name: DataTable2
   m_TagString: Untagged
@@ -86,6 +87,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5738208384400938584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3866306268471839688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db904bd86c46108418183a14ee9a20b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stockPrice: {fileID: 11400000, guid: 6a12c80b6c35d094992c6f9131f39635, type: 2}
+  _targetXTime: {fileID: 11400000, guid: de1be534e8650754d83f10b4e942b8cd, type: 2}
+  _id: {fileID: 3866306270235559796}
+  _date: {fileID: 3866306268650995565}
+  _invested: {fileID: 3866306269215073431}
+  _price: {fileID: 3866306269143607878}
+  _stockAmount: {fileID: 3866306269867458802}
+  _gainAmount: {fileID: 3866306269622707237}
+  _gainTotal: {fileID: 3866306270036696911}
+  _gain: {fileID: 3866306268975350222}
+  _sellPrice: {fileID: 3866306269422893085}
+  _btcSellPrice: {fileID: 3866306269902211400}
+  _platform: {fileID: 3866306268625732362}
 --- !u!1 &3866306268625732356
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,7 +124,7 @@ GameObject:
   - component: {fileID: 3866306268625732361}
   - component: {fileID: 3866306268625732362}
   m_Layer: 5
-  m_Name: Text
+  m_Name: platformText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,7 +204,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
+  m_fontSize: 22.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -232,7 +258,7 @@ GameObject:
   - component: {fileID: 3866306268650995564}
   - component: {fileID: 3866306268650995565}
   m_Layer: 5
-  m_Name: Text
+  m_Name: dateText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -518,7 +544,7 @@ GameObject:
   - component: {fileID: 3866306268975350221}
   - component: {fileID: 3866306268975350222}
   m_Layer: 5
-  m_Name: Text
+  m_Name: gainText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -652,7 +678,7 @@ GameObject:
   - component: {fileID: 3866306269143607877}
   - component: {fileID: 3866306269143607878}
   m_Layer: 5
-  m_Name: Text
+  m_Name: priceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -732,7 +758,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 23.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -786,7 +812,7 @@ GameObject:
   - component: {fileID: 3866306269215073430}
   - component: {fileID: 3866306269215073431}
   m_Layer: 5
-  m_Name: Text
+  m_Name: investedText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -996,7 +1022,7 @@ GameObject:
   - component: {fileID: 3866306269422893084}
   - component: {fileID: 3866306269422893085}
   m_Layer: 5
-  m_Name: Text
+  m_Name: sellPriceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1076,7 +1102,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
+  m_fontSize: 27.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1130,7 +1156,7 @@ GameObject:
   - component: {fileID: 3866306269622707236}
   - component: {fileID: 3866306269622707237}
   m_Layer: 5
-  m_Name: Text
+  m_Name: gainAmountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1210,7 +1236,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
+  m_fontSize: 27.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1416,7 +1442,7 @@ GameObject:
   - component: {fileID: 3866306269867458801}
   - component: {fileID: 3866306269867458802}
   m_Layer: 5
-  m_Name: Text
+  m_Name: stockAmountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1496,7 +1522,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.85
+  m_fontSize: 19.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1550,7 +1576,7 @@ GameObject:
   - component: {fileID: 3866306269902211407}
   - component: {fileID: 3866306269902211400}
   m_Layer: 5
-  m_Name: Text
+  m_Name: btcSellPriceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1630,7 +1656,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
+  m_fontSize: 21.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1684,7 +1710,7 @@ GameObject:
   - component: {fileID: 3866306270036696910}
   - component: {fileID: 3866306270036696911}
   m_Layer: 5
-  m_Name: Text
+  m_Name: gainTotalText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1764,7 +1790,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
+  m_fontSize: 27.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2046,7 +2072,7 @@ GameObject:
   - component: {fileID: 3866306270235559803}
   - component: {fileID: 3866306270235559796}
   m_Layer: 5
-  m_Name: Text
+  m_Name: idText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2126,7 +2152,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

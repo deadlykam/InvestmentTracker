@@ -1,15 +1,16 @@
 fileFormatVersion: 2
-guid: 250512205cc902f4ba8cdc6d86e6f658
+guid: a295d38e07ed3984e8dd7ec0158385f5
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
+  - _mainCanvas: {instanceID: 0}
   - _data: {fileID: 11400000, guid: 6ddb874f3d997c64682e2f1e0fd95553, type: 2}
-  - _dataHolder: {instanceID: 0}
-  - _prefabHelper: {instanceID: 0}
-  - _prefabData1: {instanceID: 0}
-  - _prefabData2: {instanceID: 0}
-  - _contentTransform: {instanceID: 0}
+  - _date: {instanceID: 0}
+  - _invested: {instanceID: 0}
+  - _price: {instanceID: 0}
+  - _btc: {instanceID: 0}
+  - _platform: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
