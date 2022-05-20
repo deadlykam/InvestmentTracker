@@ -23,7 +23,6 @@ namespace InvestmentTracker.Menus
         public void AddData()
         {
             _data.AddData(_date.text, float.Parse(_invested.text), float.Parse(_price.text), float.Parse(_btc.text), _platform.text);
-            _screenDisabler.SetActive(false);
             HideMenu();
         }
 
@@ -37,6 +36,12 @@ namespace InvestmentTracker.Menus
             _price.text = "";
             _btc.text = "";
             _platform.text = "";
+        }
+
+        public override void HideMenu()
+        {
+            base.HideMenu();
+            _screenDisabler.SetActive(false);
         }
     }
 }

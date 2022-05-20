@@ -793,7 +793,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.6
+  m_fontSize: 28.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2415,7 +2415,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 899014771}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.85406524
+  m_Size: 0.85406536
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6039,7 +6039,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\xA30"
+  m_text: 0 GBP
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7799,6 +7799,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stockPrice: {fileID: 11400000, guid: 6a12c80b6c35d094992c6f9131f39635, type: 2}
   _stockValue: {fileID: 982139360}
+  _url: https://api.coinbase.com/v2/prices/spot?currency=GBP
+  _refreshRate: 30
+  _flashTime: 3
+  _colNormal: {r: 1, g: 1, b: 1, a: 1}
+  _colFlash: {r: 0.027951002, g: 1, b: 0, a: 1}
 --- !u!1 &1169038697
 GameObject:
   m_ObjectHideFlags: 0
@@ -9827,7 +9832,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.5
+  m_fontSize: 28.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
