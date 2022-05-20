@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace InvestmentTracker.Core
 {
     public class JsonElement

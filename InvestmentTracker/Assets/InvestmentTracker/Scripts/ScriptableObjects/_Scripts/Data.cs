@@ -11,6 +11,8 @@ namespace InvestmentTracker.ScriptableObjects.Scripts
     {
         [Header("Data Global Properties")]
         [SerializeField] private UniqueIDGenerator _uig;
+        [SerializeField] private FloatVariable _stockPrice;
+        [SerializeField] private FloatFixedVariable _targetXTime;
 
         [Header("Data Local Properties")]
         [SerializeField] private int _startLimit = 1;
@@ -31,7 +33,7 @@ namespace InvestmentTracker.ScriptableObjects.Scripts
 
         public void AddData(string date, float invested, float priceBought, float _btc, string platform)
         {
-            _element = new Element(_uig.GetID(), date, invested, priceBought, _btc, platform);
+            _element = new Element(_uig.GetID(), date, invested, priceBought, _btc, platform, _stockPrice.GetValue(), _targetXTime.GetValue());
             _data[_pointer++] = _element;
             Trigger(_element);
             _element = null;
@@ -45,8 +47,17 @@ namespace InvestmentTracker.ScriptableObjects.Scripts
             }
         }
 
+        public Element[] GetData() => _data;
+        public int Size() => _pointer;
         public void Subscribe(Action<Element> observer) => _observers += observer;
         public void Unsubscribe(Action<Element> observer) => _observers -= observer;
         public void Trigger(Element element) => _observers(element);
+        
+        public void Reset()
+        {
+            _data = new Element[_startLimit];
+            _pointer = 0;
+            _uig.Reset();
+        }
     }
 }

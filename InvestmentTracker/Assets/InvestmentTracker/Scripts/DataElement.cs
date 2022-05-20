@@ -7,10 +7,6 @@ namespace InvestmentTracker
 {
     public class DataElement : MonoBehaviour
     {
-        [Header("DataElement Global Properties")]
-        [SerializeField] private FloatVariable _stockPrice;
-        [SerializeField] private FloatFixedVariable _targetXTime;
-
         [Header("DataElement Local Properties")]
         [SerializeField] private TextMeshProUGUI _id;
         [SerializeField] private TextMeshProUGUI _date;
@@ -25,7 +21,6 @@ namespace InvestmentTracker
         [SerializeField] private TextMeshProUGUI _platform;
 
         private Element _data;
-        private float _gainValue;
 
         public void SetDataElement(Element element)
         {
@@ -43,12 +38,11 @@ namespace InvestmentTracker
         {
             if (_data != null)
             {
-                _gainValue = ((_stockPrice.GetValue() - _data.GetPriceBought()) / _data.GetPriceBought()) * 100;
-                _gainAmount.text = ((_gainValue / 100) * _data.GetInvested()).ToString();
-                _gainTotal.text = (((_gainValue / 100) + 1) * _data.GetInvested()).ToString();
-                _gain.text = _gainValue.ToString();
-                _sellPrice.text = (_targetXTime.GetValue() * _data.GetInvested()).ToString();
-                _btcSellPrice.text = (_targetXTime.GetValue() * _data.GetPriceBought()).ToString();
+                _gainAmount.text = _data.GetGainAmount().ToString();
+                _gainTotal.text = _data.GetGainTotal().ToString();
+                _gain.text = _data.GetGain().ToString();
+                _sellPrice.text = _data.GetSellPrice().ToString();
+                _btcSellPrice.text = _data.GetBTCSellPrice().ToString();
             }
         }
     }

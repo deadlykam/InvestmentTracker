@@ -8,7 +8,10 @@ namespace InvestmentTracker
     public class StockPriceManager : MonoBehaviour
     {
         [Header("StockPriceManager Global Price")]
+        [SerializeField] private Data _data;
         [SerializeField] private FloatVariable _stockPrice;
+        [SerializeField] private FloatFixedVariable _targetXTime;
+        [SerializeField] private ActionNoneObserver _observers;
 
         [Header("StockPriceManager Local Price")]
         [SerializeField] private TextMeshProUGUI _stockValue;
@@ -20,8 +23,10 @@ namespace InvestmentTracker
 
         private JsonManager _jsonManager;
         private bool _isProcess;
+        private bool _isUpdateValues;
         private float _timeCur;
         private float _timeCurFlash;
+        private int _pointer;
 
         private void Awake()
         {
@@ -55,6 +60,18 @@ namespace InvestmentTracker
                     _timeCurFlash = 0f;
                 }
             }
+
+            if (_isUpdateValues) 
+            {
+                _data.GetData()[_pointer].UpdateValues(_stockPrice.GetValue(), _targetXTime.GetValue());
+                _pointer++;
+
+                if(_pointer >= _data.Size())
+                {
+                    _observers.Trigger();
+                    _isUpdateValues = false;
+                }
+            }
         }
 
         private void DataListener(JsonElement json)
@@ -66,6 +83,8 @@ namespace InvestmentTracker
                 _stockValue.color = _colFlash;
                 _timeCur = _refreshRate;
                 _timeCurFlash = _flashTime;
+                if (_data.Size() != 0) _isUpdateValues = true;
+                _pointer = 0;
             }
 
             _isProcess = false;

@@ -20,6 +20,23 @@ namespace InvestmentTracker.Menus
 
         private DateTime _dateTime;
 
+        private void Update()
+        {
+            if (IsShown())
+            {
+                if (Input.GetKeyDown(KeyCode.Tab))
+                {
+                    if (_date.isFocused) _invested.Select();
+                    else if (_invested.isFocused) _price.Select();
+                    else if (_price.isFocused) _btc.Select();
+                    else if (_btc.isFocused) _platform.Select();
+                    else _date.Select();
+                }
+
+                if (Input.GetKeyDown(KeyCode.LeftControl)) AddData();
+            }
+        }
+
         public void AddData()
         {
             _data.AddData(_date.text, float.Parse(_invested.text), float.Parse(_price.text), float.Parse(_btc.text), _platform.text);
@@ -36,6 +53,7 @@ namespace InvestmentTracker.Menus
             _price.text = "";
             _btc.text = "";
             _platform.text = "";
+            _invested.Select();
         }
 
         public override void HideMenu()
