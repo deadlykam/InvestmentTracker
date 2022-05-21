@@ -36,8 +36,7 @@ namespace InvestmentTracker
         {
             if (_isUpdate)
             {
-                UpdateValues(_data.GetData()[_pointer].GetGainAmount(), _data.GetData()[_pointer].GetGainTotal(), _data.GetData()[_pointer].GetGain(),
-                             _data.GetData()[_pointer].GetSellPrice(), _data.GetData()[_pointer].GetBTCSellPrice());
+                UpdateValues(_data.GetData()[_pointer].GetGainAmount(), _data.GetData()[_pointer].GetGainTotal(), _data.GetData()[_pointer].GetGain());
                 _pointer++;
 
                 if(_pointer >= _data.Size())
@@ -64,7 +63,7 @@ namespace InvestmentTracker
             _btc += element.GetBTC();
             _sellPrice += element.GetSellPrice();
             _btcSellPrice += element.GetBTCSellPrice();
-            UpdateValues(element.GetGainAmount(), element.GetGainTotal(), element.GetGain(), element.GetSellPrice(), element.GetBTCSellPrice());
+            UpdateValues(element.GetGainAmount(), element.GetGainTotal(), element.GetGain());
 
             _textInvested.text = _invested.ToString();
             _textPriceBought.text = (_priceBought / _data.Size()).ToString();
@@ -74,7 +73,7 @@ namespace InvestmentTracker
             UpdateValuesText();
         }
 
-        private void UpdateValues(float gainAmount, float gainTotal, float gain, float sellPrice, float btcSellPrice)
+        private void UpdateValues(float gainAmount, float gainTotal, float gain)
         {
             _gainAmount += gainAmount;
             _gainTotal += gainTotal;

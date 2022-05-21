@@ -23,9 +23,7 @@ namespace InvestmentTracker.Core
         {
             if (!_isInit) Initialize();
             _path = $"{_persistentPath}{_fileName}";
-            Debug.Log($"Save -> {_path}");
             _json = JsonHelper.ToJson(data);
-            Debug.Log(_json);
 
             using StreamWriter writer = new StreamWriter(_path);
             writer.Write(_json);
