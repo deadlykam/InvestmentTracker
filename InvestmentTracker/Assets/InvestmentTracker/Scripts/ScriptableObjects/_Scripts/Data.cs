@@ -27,6 +27,7 @@ namespace InvestmentTracker.ScriptableObjects.Scripts
 
         private void Awake()
         {
+            SaveLoad.Initialize();
             _data = new Element[_startLimit];
             _observers = null;
         }
@@ -40,6 +41,7 @@ namespace InvestmentTracker.ScriptableObjects.Scripts
 
             if (_pointer >= _data.Length) // Condition for increasing data size
             {
+                _tempData = null;
                 _tempData = _data;
                 _data = new Element[_data.Length * _dataSizeIncrease];
                 for(_index = 0; _index < _tempData.Length; _index++) { _data[_index] = _tempData[_index]; }
@@ -47,7 +49,25 @@ namespace InvestmentTracker.ScriptableObjects.Scripts
             }
         }
 
-        public Element[] GetData() => _data;
+        public Element[] GetData()
+        {
+            _tempData = new Element[_pointer];
+            for (_index = 0; _index < _tempData.Length; _index++) _tempData[_index] = _data[_index];
+            return _tempData;
+        }
+
+        public void SaveData() => SaveLoad.SaveData(GetData());
+
+        public void LoadData()
+        {
+            _tempData = SaveLoad.LoadData();
+            _data = new Element[_tempData.Length + 1];
+            _pointer = 0;
+            _uig.Reset();
+            for (_index = 0; _index < _tempData.Length; _index++) AddData(_tempData[_index].date, _tempData[_index].invested, _tempData[_index].priceBought, _tempData[_index].btc, _tempData[_index].platform);
+            _tempData = null;
+        }
+
         public int Size() => _pointer;
         public void Subscribe(Action<Element> observer) => _observers += observer;
         public void Unsubscribe(Action<Element> observer) => _observers -= observer;

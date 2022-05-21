@@ -48,6 +48,9 @@ namespace InvestmentTracker
             }
         }
 
+        public void BtnSave() => _data.SaveData();
+        public void BtnLoad() => _data.LoadData();
+
         private void Listener()
         {
             _isUpdate = true;
@@ -63,24 +66,12 @@ namespace InvestmentTracker
             _btcSellPrice += element.GetBTCSellPrice();
             UpdateValues(element.GetGainAmount(), element.GetGainTotal(), element.GetGain(), element.GetSellPrice(), element.GetBTCSellPrice());
 
-            /*_gainAmount += element.GetGainAmount();
-            _gainTotal += element.GetGainTotal();
-            _gain += element.GetGain();
-            _sellPrice += element.GetSellPrice();
-            _btcSellPrice += element.GetBTCSellPrice();*/
-
             _textInvested.text = _invested.ToString();
             _textPriceBought.text = (_priceBought / _data.Size()).ToString();
             _textBTC.text = _btc.ToString();
             _textSellPrice.text = _sellPrice.ToString();
             _textBTCSellPrice.text = (_btcSellPrice / _data.Size()).ToString();
             UpdateValuesText();
-
-            /*_textGainAmount.text = _gainAmount.ToString();
-            _textGainTotal.text = _gainTotal.ToString();
-            _textGain.text = (_gain / _data.Size()).ToString();
-            _textSellPrice.text = _sellPrice.ToString();
-            _textBTCSellPrice.text = (_btcSellPrice / _data.Size()).ToString();*/
         }
 
         private void UpdateValues(float gainAmount, float gainTotal, float gain, float sellPrice, float btcSellPrice)
@@ -88,8 +79,6 @@ namespace InvestmentTracker
             _gainAmount += gainAmount;
             _gainTotal += gainTotal;
             _gain += gain;
-            /*_sellPrice += sellPrice;
-            _btcSellPrice += btcSellPrice;*/
         }
 
         private void UpdateValuesText()
@@ -97,8 +86,6 @@ namespace InvestmentTracker
             _textGainAmount.text = _gainAmount.ToString();
             _textGainTotal.text = _gainTotal.ToString();
             _textGain.text = (_gain / _data.Size()).ToString();
-            /*_textSellPrice.text = _sellPrice.ToString();
-            _textBTCSellPrice.text = (_btcSellPrice / _data.Size()).ToString();*/
         }
     }
 }
