@@ -35,11 +35,9 @@ namespace InvestmentTracker.Core
             gain = ((stockPrice - priceBought) / priceBought) * 100;
             gainAmount = (gain / 100) * invested;
             gainTotal = ((gain / 100) + 1) * invested;
-            /*_sellPrice = targetXTime * _invested;
-            _btcSellPrice = targetXTime * _priceBought;*/
         }
 
-        public int GetID() => id;
+        /*public int GetID() => id;
         public void SetID(int value) => id = value;
         public string GetDate() => date;
         public void SetDate(string value) => date = value;
@@ -60,6 +58,6 @@ namespace InvestmentTracker.Core
         public float GetBTCSellPrice() => btcSellPrice;
         public void SetBTCSellPrice(float value) => btcSellPrice = value;
         public string GetPlatform() => platform;
-        public void SetPlatform(string value) => platform = value;
+        public void SetPlatform(string value) => platform = value;*/
     }
 }
