@@ -2,13 +2,13 @@ using InvestmentTracker.Core;
 using InvestmentTracker.ScriptableObjects.Scripts;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace InvestmentTracker
 {
     public class DataElement : MonoBehaviour
     {
         [Header("DataElement Global Properties")]
-        [SerializeField] private FloatVariable _stockPrice;
         [SerializeField] private FloatFixedVariable _targetXTime;
 
         [Header("DataElement Local Properties")]
@@ -23,19 +23,27 @@ namespace InvestmentTracker
         [SerializeField] private TextMeshProUGUI _sellPrice;
         [SerializeField] private TextMeshProUGUI _btcSellPrice;
         [SerializeField] private TextMeshProUGUI _platform;
+        [SerializeField] private Image _indicator;
+        [SerializeField] private Color _colGain;
+        [SerializeField] private Color _colLoss;
+        [SerializeField] private Color _colNutral;
 
         private Element _data;
-        private float _gainValue;
+        private float _gainMax = 50.0f;
+        private float _gainMin = -25.0f;
+
 
         public void SetDataElement(Element element)
         {
             _data = element;
-            _id.text = _data.GetID().ToString();
-            _date.text = _data.GetDate();
-            _invested.text = _data.GetInvested().ToString();
-            _price.text = _data.GetPriceBought().ToString();
-            _stockAmount.text = _data.GetBTC().ToString();
-            _platform.text = _data.GetPlatform().ToString();
+            _id.text = _data.id.ToString();
+            _date.text = _data.date;
+            _invested.text = _data.invested.ToString();
+            _price.text = _data.priceBought.ToString();
+            _stockAmount.text = _data.btc.ToString();
+            _platform.text = _data.platform.ToString();
+            _sellPrice.text = _data.sellPrice.ToString();
+            _btcSellPrice.text = _data.btcSellPrice.ToString();
             UpdateData();
         }
 
@@ -43,12 +51,12 @@ namespace InvestmentTracker
         {
             if (_data != null)
             {
-                _gainValue = ((_stockPrice.GetValue() - _data.GetPriceBought()) / _data.GetPriceBought()) * 100;
-                _gainAmount.text = ((_gainValue / 100) * _data.GetInvested()).ToString();
-                _gainTotal.text = (((_gainValue / 100) + 1) * _data.GetInvested()).ToString();
-                _gain.text = _gainValue.ToString();
-                _sellPrice.text = (_targetXTime.GetValue() * _data.GetInvested()).ToString();
-                _btcSellPrice.text = (_targetXTime.GetValue() * _data.GetPriceBought()).ToString();
+                _gainAmount.text = _data.gainAmount.ToString();
+                _gainTotal.text = _data.gainTotal.ToString();
+                _gain.text = _data.gain.ToString();
+
+                if (_data.gain >= 0f) _indicator.color = Color.Lerp(_colNutral, _colGain, (_data.gain / _gainMax) >= 1f ? 1 : _data.gain / _gainMax);
+                else _indicator.color = Color.Lerp(_colNutral, _colLoss, (_data.gain / _gainMin) >= 1 ? 1 : (_data.gain / _gainMin));
             }
         }
     }

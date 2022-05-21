@@ -5,69 +5,59 @@ namespace InvestmentTracker.Core
     [Serializable]
     public class Element
     {
-        private int _id;
-        private string _date;
-        private float _invested;
-        private float _priceBought;
-        private float _btc;
+        public int id;
+        public string date;
+        public float invested;
+        public float priceBought;
+        public float btc;
+        public float gainAmount;
+        public float gainTotal;
+        public float gain;
+        public float sellPrice;
+        public float btcSellPrice;
+        public string platform;
 
-        /*private float _gainAmount;
-        private float _gainTotal;
-        private float _gain;
-        private float _sellPrice;
-        private float _btcSellPrice;*/
-
-        private string _platform;
-
-        public Element(int id, string date, float invested, float priceBought, float btc, string platform)
+        public Element(int id, string date, float invested, float priceBought, float btc, string platform, float stockPrice, float targetXTime)
         {
-            _id = id;
-            _date = date;
-            _invested = invested;
-            _priceBought = priceBought;
-            _btc = btc;
-            _platform = platform;
+            this.id = id;
+            this.date = date;
+            this.invested = invested;
+            this.priceBought = priceBought;
+            this.btc = btc;
+            this.platform = platform;
+            sellPrice = targetXTime * this.invested;
+            btcSellPrice = targetXTime * this.priceBought;
+            UpdateValues(stockPrice, targetXTime);
         }
 
-        /*public Element(int id, string date, float invested, float priceBought, float btc, float gainAmount, float gainTotal, float gain, float sellPrice, 
-            float btcSellPrice, string platform)
+        public void UpdateValues(float stockPrice, float targetXTime)
         {
-            _id = id;
-            _date = date;
-            _invested = invested;
-            _priceBought = priceBought;
-            _btc = btc;
-            _gainAmount = gainAmount;
-            _gainTotal = gainTotal;
-            _gain = gain;
-            _sellPrice = sellPrice;
-            _btcSellPrice = btcSellPrice;
-            _platform = platform;
-        }*/
+            gain = ((stockPrice - priceBought) / priceBought) * 100;
+            gainAmount = (gain / 100) * invested;
+            gainTotal = ((gain / 100) + 1) * invested;
+        }
 
-        public int GetID() => _id;
-        public void SetID(int value) => _id = value;
-        public string GetDate() => _date;
-        public void SetDate(string value) => _date = value;
-        public float GetInvested() => _invested;
-        public void SetInvested(float value) => _invested = value;
-        public float GetPriceBought() => _priceBought;
-        public void SetPriceBought(float value) => _priceBought = value;
-        public float GetBTC() => _btc;
-        public void SetBTC(float value) => _btc = value;
-
-        /*public float GetGainAmount() => _gainAmount;
-        public void SetGainAmount(float value) => _gainAmount = value;
-        public float GetGainTotal() => _gainTotal;
-        public void SetGainTotal(float value) => _gainTotal = value;
-        public float GetGain() => _gain;
-        public void SetGain(float value) => _gain = value;
-        public float GetSellPrice() => _sellPrice;
-        public void SetSellPrice(float value) => _sellPrice = value;
-        public float GetBTCSellPrice() => _btcSellPrice;
-        public void SetBTCSellPrice(float value) => _btcSellPrice = value;*/
-
-        public string GetPlatform() => _platform;
-        public void SetPlatform(string value) => _platform = value;
+        /*public int GetID() => id;
+        public void SetID(int value) => id = value;
+        public string GetDate() => date;
+        public void SetDate(string value) => date = value;
+        public float GetInvested() => invested;
+        public void SetInvested(float value) => invested = value;
+        public float GetPriceBought() => priceBought;
+        public void SetPriceBought(float value) => priceBought = value;
+        public float GetBTC() => btc;
+        public void SetBTC(float value) => btc = value;
+        public float GetGainAmount() => gainAmount;
+        public void SetGainAmount(float value) => gainAmount = value;
+        public float GetGainTotal() => gainTotal;
+        public void SetGainTotal(float value) => gainTotal = value;
+        public float GetGain() => gain;
+        public void SetGain(float value) => gain = value;
+        public float GetSellPrice() => sellPrice;
+        public void SetSellPrice(float value) => sellPrice = value;
+        public float GetBTCSellPrice() => btcSellPrice;
+        public void SetBTCSellPrice(float value) => btcSellPrice = value;
+        public string GetPlatform() => platform;
+        public void SetPlatform(string value) => platform = value;*/
     }
 }

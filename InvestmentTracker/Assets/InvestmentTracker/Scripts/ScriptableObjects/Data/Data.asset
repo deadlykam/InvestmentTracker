@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Data
   m_EditorClassIdentifier: 
   _uig: {fileID: 11400000, guid: e6daebe380cdf71408cb430bdd999287, type: 2}
+  _stockPrice: {fileID: 11400000, guid: 6a12c80b6c35d094992c6f9131f39635, type: 2}
+  _targetXTime: {fileID: 11400000, guid: de1be534e8650754d83f10b4e942b8cd, type: 2}
   _startLimit: 1
   _dataSizeIncrease: 2
