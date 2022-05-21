@@ -36,8 +36,7 @@ namespace InvestmentTracker
         {
             if (_isUpdate)
             {
-                UpdateValues(_data.GetData()[_pointer].GetGainAmount(), _data.GetData()[_pointer].GetGainTotal(), _data.GetData()[_pointer].GetGain(),
-                             _data.GetData()[_pointer].GetSellPrice(), _data.GetData()[_pointer].GetBTCSellPrice());
+                UpdateValues(_data.GetData()[_pointer].GetGainAmount(), _data.GetData()[_pointer].GetGainTotal(), _data.GetData()[_pointer].GetGain());
                 _pointer++;
 
                 if(_pointer >= _data.Size())
@@ -47,6 +46,9 @@ namespace InvestmentTracker
                 }
             }
         }
+
+        public void BtnSave() => _data.SaveData();
+        public void BtnLoad() => _data.LoadData();
 
         private void Listener()
         {
@@ -61,13 +63,7 @@ namespace InvestmentTracker
             _btc += element.GetBTC();
             _sellPrice += element.GetSellPrice();
             _btcSellPrice += element.GetBTCSellPrice();
-            UpdateValues(element.GetGainAmount(), element.GetGainTotal(), element.GetGain(), element.GetSellPrice(), element.GetBTCSellPrice());
-
-            /*_gainAmount += element.GetGainAmount();
-            _gainTotal += element.GetGainTotal();
-            _gain += element.GetGain();
-            _sellPrice += element.GetSellPrice();
-            _btcSellPrice += element.GetBTCSellPrice();*/
+            UpdateValues(element.GetGainAmount(), element.GetGainTotal(), element.GetGain());
 
             _textInvested.text = _invested.ToString();
             _textPriceBought.text = (_priceBought / _data.Size()).ToString();
@@ -75,21 +71,13 @@ namespace InvestmentTracker
             _textSellPrice.text = _sellPrice.ToString();
             _textBTCSellPrice.text = (_btcSellPrice / _data.Size()).ToString();
             UpdateValuesText();
-
-            /*_textGainAmount.text = _gainAmount.ToString();
-            _textGainTotal.text = _gainTotal.ToString();
-            _textGain.text = (_gain / _data.Size()).ToString();
-            _textSellPrice.text = _sellPrice.ToString();
-            _textBTCSellPrice.text = (_btcSellPrice / _data.Size()).ToString();*/
         }
 
-        private void UpdateValues(float gainAmount, float gainTotal, float gain, float sellPrice, float btcSellPrice)
+        private void UpdateValues(float gainAmount, float gainTotal, float gain)
         {
             _gainAmount += gainAmount;
             _gainTotal += gainTotal;
             _gain += gain;
-            /*_sellPrice += sellPrice;
-            _btcSellPrice += btcSellPrice;*/
         }
 
         private void UpdateValuesText()
@@ -97,8 +85,6 @@ namespace InvestmentTracker
             _textGainAmount.text = _gainAmount.ToString();
             _textGainTotal.text = _gainTotal.ToString();
             _textGain.text = (_gain / _data.Size()).ToString();
-            /*_textSellPrice.text = _sellPrice.ToString();
-            _textBTCSellPrice.text = (_btcSellPrice / _data.Size()).ToString();*/
         }
     }
 }

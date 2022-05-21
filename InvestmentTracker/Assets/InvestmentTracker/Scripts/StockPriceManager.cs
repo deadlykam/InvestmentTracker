@@ -15,6 +15,7 @@ namespace InvestmentTracker
 
         [Header("StockPriceManager Local Price")]
         [SerializeField] private TextMeshProUGUI _stockValue;
+        [SerializeField] private TMP_InputField _customStockValueInput;
         [SerializeField] private string _url;
         [SerializeField] private float _refreshRate;
         [SerializeField] private float _flashTime;
@@ -27,6 +28,9 @@ namespace InvestmentTracker
         private float _timeCur;
         private float _timeCurFlash;
         private int _pointer;
+        private float _curStockValue;
+        private float _customStockValue;
+        private bool _isCustomStock;
 
         private void Awake()
         {
@@ -74,20 +78,47 @@ namespace InvestmentTracker
             }
         }
 
+        public void SetCustomStockValue()
+        {
+            _customStockValue = float.Parse(_customStockValueInput.text);
+
+            if (_customStockValue != 0f)
+            {
+                if (!_isCustomStock) _isCustomStock = true;
+                SetStockPrice();
+                _isUpdateValues = true;
+                _pointer = 0;
+            }
+            else
+            {
+                _isCustomStock = false;
+                SetStockPrice();
+                _isUpdateValues = true;
+                _pointer = 0;
+            }
+        }
+
         private void DataListener(JsonElement json)
         {
-            if (_stockPrice.GetValue() != json.amount)
+            if (_curStockValue != json.amount)
             {
-                _stockPrice.SetValue(json.amount);
+                _curStockValue = json.amount;
+                SetStockPrice();
                 _stockValue.text = $"{json.amount.ToString()} {json.currency}";
                 _stockValue.color = _colFlash;
                 _timeCur = _refreshRate;
                 _timeCurFlash = _flashTime;
-                if (_data.Size() != 0) _isUpdateValues = true;
+                if (_data.Size() != 0 && !_isCustomStock) _isUpdateValues = true;
                 _pointer = 0;
             }
 
             _isProcess = false;
+        }
+
+        private void SetStockPrice()
+        {
+            if (!_isCustomStock) _stockPrice.SetValue(_curStockValue);
+            else _stockPrice.SetValue(_customStockValue);
         }
     }
 }
