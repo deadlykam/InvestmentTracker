@@ -25,6 +25,8 @@ namespace InvestmentTracker.Core
             _priceBought = priceBought;
             _btc = btc;
             _platform = platform;
+            _sellPrice = targetXTime * _invested;
+            _btcSellPrice = targetXTime * _priceBought;
             UpdateValues(stockPrice, targetXTime);
         }
 

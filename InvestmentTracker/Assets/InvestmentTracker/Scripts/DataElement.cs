@@ -31,6 +31,8 @@ namespace InvestmentTracker
             _price.text = _data.GetPriceBought().ToString();
             _stockAmount.text = _data.GetBTC().ToString();
             _platform.text = _data.GetPlatform().ToString();
+            _sellPrice.text = _data.GetSellPrice().ToString();
+            _btcSellPrice.text = _data.GetBTCSellPrice().ToString();
             UpdateData();
         }
 
@@ -41,8 +43,8 @@ namespace InvestmentTracker
                 _gainAmount.text = _data.GetGainAmount().ToString();
                 _gainTotal.text = _data.GetGainTotal().ToString();
                 _gain.text = _data.GetGain().ToString();
-                _sellPrice.text = _data.GetSellPrice().ToString();
-                _btcSellPrice.text = _data.GetBTCSellPrice().ToString();
+                /*_sellPrice.text = _data.GetSellPrice().ToString();
+                _btcSellPrice.text = _data.GetBTCSellPrice().ToString();*/
             }
         }
     }
