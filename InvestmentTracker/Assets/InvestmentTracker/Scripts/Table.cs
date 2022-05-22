@@ -59,8 +59,7 @@ namespace InvestmentTracker
             {
                 RemoveAllData();
                 _data.SoldData(_idSelected);
-                _idSelected = -1;
-                _selectHighlightCanvas.enabled = false;
+                RemoveSelected();
             }
         }
 
@@ -70,8 +69,7 @@ namespace InvestmentTracker
             {
                 RemoveAllData();
                 _data.RemoveData(_idSelected);
-                _idSelected = -1;
-                _selectHighlightCanvas.enabled = false;
+                RemoveSelected();
             }
         }
 
@@ -79,16 +77,94 @@ namespace InvestmentTracker
         {
             RemoveAllData();
             for (_index = 0; _index < _data.Size(); _index++) AddData(_data.GetData()[_index]);
-            _idSelected = -1;
-            _selectHighlightCanvas.enabled = false;
+            RemoveSelected();
         }
 
         public void BtnShowSellData()
         {
             RemoveAllData();
             for (_index = 0; _index < _data.SizeSold(); _index++) AddData(_data.GetDataSold()[_index]);
-            _idSelected = -1;
-            _selectHighlightCanvas.enabled = false;
+            RemoveSelected();
+        }
+
+        public void BtnSearchID()
+        {
+            RemoveAllData();
+            _data.SortID();
+            for (_index = 0; _index < _data.SizeSort(); _index++) AddData(_data.GetDataSort()[_index]);
+            RemoveSelected();
+        }
+
+        public void BtnSearchInvested()
+        {
+            RemoveAllData();
+            _data.SortInvested();
+            for (_index = 0; _index < _data.SizeSort(); _index++) AddData(_data.GetDataSort()[_index]);
+            RemoveSelected();
+        }
+
+        public void BtnSearchPrice()
+        {
+            RemoveAllData();
+            _data.SortPrice();
+            for (_index = 0; _index < _data.SizeSort(); _index++) AddData(_data.GetDataSort()[_index]);
+            RemoveSelected();
+        }
+
+        public void BtnSearchBTC()
+        {
+            RemoveAllData();
+            _data.SortBTC();
+            for (_index = 0; _index < _data.SizeSort(); _index++) AddData(_data.GetDataSort()[_index]);
+            RemoveSelected();
+        }
+
+        public void BtnSearchSellPrice()
+        {
+            RemoveAllData();
+            _data.SortSellPrice();
+            for (_index = 0; _index < _data.SizeSort(); _index++) AddData(_data.GetDataSort()[_index]);
+            RemoveSelected();
+        }
+
+        public void BtnSearchBTCSellPrice()
+        {
+            RemoveAllData();
+            _data.SortBTCSellPrice();
+            for (_index = 0; _index < _data.SizeSort(); _index++) AddData(_data.GetDataSort()[_index]);
+            RemoveSelected();
+        }
+
+        public void BtnSearchPlatform()
+        {
+            RemoveAllData();
+            _data.SortPlatform();
+            for (_index = 0; _index < _data.SizeSort(); _index++) AddData(_data.GetDataSort()[_index]);
+            RemoveSelected();
+        }
+
+        public void BtnSearchGain()
+        {
+            RemoveAllData();
+            _data.SortGain();
+            for (_index = 0; _index < _data.SizeSort(); _index++) AddData(_data.GetDataSort()[_index]);
+            RemoveSelected();
+        }
+
+        public void BtnSearchGainAmount()
+        {
+            RemoveAllData();
+            _data.SortGainAmount();
+            for (_index = 0; _index < _data.SizeSort(); _index++) AddData(_data.GetDataSort()[_index]);
+            RemoveSelected();
+        }
+
+        public void BtnSearchGainTotal()
+        {
+            RemoveAllData();
+            _data.SortGainTotal();
+            for (_index = 0; _index < _data.SizeSort(); _index++) AddData(_data.GetDataSort()[_index]);
+            RemoveSelected();
         }
 
         private void RemoveAllData()
@@ -100,6 +176,12 @@ namespace InvestmentTracker
             }
 
             _posTemp.y = -_addOffset; // Making sure the first temp added is in the 0th position
+        }
+
+        private void RemoveSelected()
+        {
+            _idSelected = -1;
+            _selectHighlightCanvas.enabled = false;
         }
 
         private void Listener() 
