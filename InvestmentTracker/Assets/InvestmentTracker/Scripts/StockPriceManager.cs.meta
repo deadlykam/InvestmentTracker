@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 7bd95ef72b919ab4db2ae69a0a30c04c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _data: {fileID: 11400000, guid: 6ddb874f3d997c64682e2f1e0fd95553, type: 2}
+  - _stockPrice: {fileID: 11400000, guid: 6a12c80b6c35d094992c6f9131f39635, type: 2}
+  - _targetXTime: {fileID: 11400000, guid: de1be534e8650754d83f10b4e942b8cd, type: 2}
+  - _observers: {fileID: 11400000, guid: 81a62aef15f1a91408a3ea0957eda1e9, type: 2}
+  - _stockValue: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

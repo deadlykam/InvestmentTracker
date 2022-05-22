@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21c337b6efe624c45a414941ad7ebb1b, type: 3}
+  m_Name: Data
+  m_EditorClassIdentifier: 
+  _uig: {fileID: 11400000, guid: e6daebe380cdf71408cb430bdd999287, type: 2}
+  _stockPrice: {fileID: 11400000, guid: 6a12c80b6c35d094992c6f9131f39635, type: 2}
+  _targetXTime: {fileID: 11400000, guid: de1be534e8650754d83f10b4e942b8cd, type: 2}
+  _observersSave: {fileID: 11400000, guid: c223b422f93dc894697d78487e74afbc, type: 2}
+  _startLimit: 1
+  _dataSizeIncrease: 2
