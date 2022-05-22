@@ -14,17 +14,13 @@ namespace InvestmentTracker.ScriptableObjects.Scripts
         [SerializeField] private UniqueIDGenerator _uig;
         [SerializeField] private FloatVariable _stockPrice;
         [SerializeField] private FloatFixedVariable _targetXTime;
-
-        [Header("Data Local Properties")]
-        [SerializeField] private int _startLimit = 1;
-        [SerializeField, Tooltip("The amount of times the data will increase when limit reached.")] private int _dataSizeIncrease = 2;
+        [SerializeField] private ActionNoneObserver _observersSave;
 
         private List<Element> _data;
         private List<Element> _dataSold;
         private Element[] _tempData;
         private Element _element;
         private Action<Element> _observers;
-        private int _pointer = 0;
         private int _index;
         private string _fileNameTable = "DefaultSave.json";
         private string _fileNameSold = "DefaultSoldSave.json";
@@ -66,6 +62,7 @@ namespace InvestmentTracker.ScriptableObjects.Scripts
         {
             SaveLoad.SaveData(GetData(), _fileNameTable);
             SaveLoad.SaveData(_dataSold.ToArray(), _fileNameSold);
+            _observersSave.Trigger();
         }
 
         public void LoadData()

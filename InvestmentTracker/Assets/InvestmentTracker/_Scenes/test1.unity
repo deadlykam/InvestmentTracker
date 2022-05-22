@@ -5042,7 +5042,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628458495}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -9721,6 +9721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data: {fileID: 11400000, guid: 6ddb874f3d997c64682e2f1e0fd95553, type: 2}
   _listener: {fileID: 11400000, guid: 81a62aef15f1a91408a3ea0957eda1e9, type: 2}
+  _listenerSave: {fileID: 11400000, guid: c223b422f93dc894697d78487e74afbc, type: 2}
   _textInvested: {fileID: 1751303045}
   _textPriceBought: {fileID: 2104131272}
   _textBTC: {fileID: 1685393899}
@@ -9729,6 +9730,7 @@ MonoBehaviour:
   _textGain: {fileID: 221566078}
   _textSellPrice: {fileID: 351861952}
   _textBTCSellPrice: {fileID: 727047934}
+  _saveIconCanvas: {fileID: 628458499}
 --- !u!1 &1169038697
 GameObject:
   m_ObjectHideFlags: 0
