@@ -98,12 +98,12 @@ namespace InvestmentTracker
         {
             _textInvested.text = _invested.ToString();
             _textPriceBought.text = (_priceBought / _data.Size()).ToString();
-            _textBTC.text = _btc.ToString();
+            _textBTC.text = _btc.ToString("0.00000000");
             _textSellPrice.text = _sellPrice.ToString();
             _textBTCSellPrice.text = (_btcSellPrice / _data.Size()).ToString();
-            _textGainAmount.text = _gainAmount.ToString();
-            _textGainTotal.text = _gainTotal.ToString();
-            _textGain.text = (_gain / _data.Size()).ToString();
+            _textGainAmount.text = _gainAmount.ToString("0.00");
+            _textGainTotal.text = _gainTotal.ToString("0.00");
+            _textGain.text = (_gain / _data.Size()).ToString("0.00");
         }
 
         private void SaveSuccessful() => _saveIconCanvas.enabled = true;
