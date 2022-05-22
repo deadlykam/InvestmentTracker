@@ -40,13 +40,6 @@ namespace InvestmentTracker
         {
             _data = element;
             _id.text = _data.id.ToString();
-            _date.text = _data.date;
-            _invested.text = _data.invested.ToString();
-            _price.text = _data.priceBought.ToString();
-            _stockAmount.text = _data.btc.ToString();
-            _platform.text = _data.platform.ToString();
-            _sellPrice.text = _data.sellPrice.ToString();
-            _btcSellPrice.text = _data.btcSellPrice.ToString();
             UpdateData();
         }
 
@@ -54,6 +47,13 @@ namespace InvestmentTracker
         {
             if (_data != null)
             {
+                _date.text = _data.date;
+                _invested.text = _data.invested.ToString();
+                _price.text = _data.priceBought.ToString();
+                _stockAmount.text = _data.btc.ToString();
+                _platform.text = _data.platform.ToString();
+                _sellPrice.text = _data.sellPrice.ToString();
+                _btcSellPrice.text = _data.btcSellPrice.ToString();
                 _gainAmount.text = _data.gainAmount.ToString();
                 _gainTotal.text = _data.gainTotal.ToString();
                 _gain.text = _data.gain.ToString();
