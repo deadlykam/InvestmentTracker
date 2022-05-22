@@ -32,6 +32,7 @@ namespace InvestmentTracker
         private bool _isUpdate;
         private int _pointer;
         private int _idSelected = -1;
+        private int _index;
 
         private void Start()
         {
@@ -56,13 +57,7 @@ namespace InvestmentTracker
         {
             if (_idSelected != -1)
             {
-                while (_dataElements.Count != 0)
-                {
-                    Destroy(_dataElements[0].gameObject);
-                    _dataElements.RemoveAt(0);
-                }
-
-                _posTemp.y = -_addOffset; // Making sure the first temp added is in the 0th position
+                RemoveAllData();
                 _data.SoldData(_idSelected);
                 _idSelected = -1;
                 _selectHighlightCanvas.enabled = false;
@@ -73,17 +68,38 @@ namespace InvestmentTracker
         {
             if (_idSelected != -1)
             {
-                while (_dataElements.Count != 0)
-                {
-                    Destroy(_dataElements[0].gameObject);
-                    _dataElements.RemoveAt(0);
-                }
-
-                _posTemp.y = -_addOffset; // Making sure the first temp added is in the 0th position
+                RemoveAllData();
                 _data.RemoveData(_idSelected);
                 _idSelected = -1;
                 _selectHighlightCanvas.enabled = false;
             }
+        }
+
+        public void BtnShowBuyData()
+        {
+            RemoveAllData();
+            for (_index = 0; _index < _data.Size(); _index++) AddData(_data.GetData()[_index]);
+            _idSelected = -1;
+            _selectHighlightCanvas.enabled = false;
+        }
+
+        public void BtnShowSellData()
+        {
+            RemoveAllData();
+            for (_index = 0; _index < _data.SizeSold(); _index++) AddData(_data.GetDataSold()[_index]);
+            _idSelected = -1;
+            _selectHighlightCanvas.enabled = false;
+        }
+
+        private void RemoveAllData()
+        {
+            while (_dataElements.Count != 0)
+            {
+                Destroy(_dataElements[0].gameObject);
+                _dataElements.RemoveAt(0);
+            }
+
+            _posTemp.y = -_addOffset; // Making sure the first temp added is in the 0th position
         }
 
         private void Listener() 
