@@ -1,5 +1,6 @@
 using InvestmentTracker.Core;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace InvestmentTracker.ScriptableObjects.Scripts
@@ -13,70 +14,81 @@ namespace InvestmentTracker.ScriptableObjects.Scripts
         [SerializeField] private UniqueIDGenerator _uig;
         [SerializeField] private FloatVariable _stockPrice;
         [SerializeField] private FloatFixedVariable _targetXTime;
+        [SerializeField] private ActionNoneObserver _observersSave;
 
-        [Header("Data Local Properties")]
-        [SerializeField] private int _startLimit = 1;
-        [SerializeField, Tooltip("The amount of times the data will increase when limit reached.")] private int _dataSizeIncrease = 2;
-
-        private Element[] _data;
+        private List<Element> _data;
+        private List<Element> _dataSold;
         private Element[] _tempData;
         private Element _element;
         private Action<Element> _observers;
-        private int _pointer = 0;
         private int _index;
+        private string _fileNameTable = "DefaultSave.json";
+        private string _fileNameSold = "DefaultSoldSave.json";
 
         private void Awake()
         {
             SaveLoad.Initialize();
-            _data = new Element[_startLimit];
+            _data = new List<Element>();
+            _dataSold = new List<Element>();
             _observers = null;
         }
 
         public void AddData(string date, float invested, float priceBought, float _btc, string platform)
         {
             _element = new Element(_uig.GetID(), date, invested, priceBought, _btc, platform, _stockPrice.GetValue(), _targetXTime.GetValue());
-            _data[_pointer++] = _element;
+            _data.Add(_element);
             Trigger(_element);
             _element = null;
-
-            if (_pointer >= _data.Length) // Condition for increasing data size
-            {
-                _tempData = null;
-                _tempData = _data;
-                _data = new Element[_data.Length * _dataSizeIncrease];
-                for(_index = 0; _index < _tempData.Length; _index++) { _data[_index] = _tempData[_index]; }
-                _tempData = null;
-            }
         }
 
-        public Element[] GetData()
+        public void SoldData(int id)
         {
-            _tempData = new Element[_pointer];
-            for (_index = 0; _index < _tempData.Length; _index++) _tempData[_index] = _data[_index];
-            return _tempData;
+            _dataSold.Add(_data[id]);
+            RemoveData(id);
         }
 
-        public void SaveData() => SaveLoad.SaveData(GetData());
+        public void RemoveData(int id)
+        {
+            _data.RemoveAt(id);
+            _tempData = _data.ToArray();
+            _data.Clear();
+            _uig.Reset();
+            for (_index = 0; _index < _tempData.Length; _index++) AddData(_tempData[_index].date, _tempData[_index].invested, _tempData[_index].priceBought, _tempData[_index].btc, _tempData[_index].platform);
+        }
+
+        public Element[] GetData() => _data.ToArray();
+
+        public void SaveData()
+        {
+            SaveLoad.SaveData(GetData(), _fileNameTable);
+            SaveLoad.SaveData(_dataSold.ToArray(), _fileNameSold);
+            _observersSave.Trigger();
+        }
 
         public void LoadData()
         {
-            _tempData = SaveLoad.LoadData();
-            _data = new Element[_tempData.Length + 1];
-            _pointer = 0;
+            _tempData = SaveLoad.LoadData(_fileNameTable);
             _uig.Reset();
             for (_index = 0; _index < _tempData.Length; _index++) AddData(_tempData[_index].date, _tempData[_index].invested, _tempData[_index].priceBought, _tempData[_index].btc, _tempData[_index].platform);
-            _tempData = null;
+
+            _tempData = SaveLoad.LoadData(_fileNameSold);
+            for (_index = 0; _index < _tempData.Length; _index++)
+            {
+                _element = new Element(-1, _tempData[_index].date, _tempData[_index].invested, _tempData[_index].priceBought, _tempData[_index].btc, _tempData[_index].platform, _stockPrice.GetValue(), _targetXTime.GetValue());
+                _dataSold.Add(_element);
+            }
+
+            _element = null;
         }
 
-        public int Size() => _pointer;
+        public int Size() => _data.Count;
         public void Subscribe(Action<Element> observer) => _observers += observer;
         public void Unsubscribe(Action<Element> observer) => _observers -= observer;
         public void Trigger(Element element) => _observers(element);
         
         public void Reset()
         {
-            _data = new Element[_startLimit];
-            _pointer = 0;
+            _data.Clear();
             _uig.Reset();
         }
     }

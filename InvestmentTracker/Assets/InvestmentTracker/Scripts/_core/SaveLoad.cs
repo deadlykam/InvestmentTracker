@@ -7,7 +7,6 @@ namespace InvestmentTracker.Core
     {
         private static Element[] _dataElements;
         private static string _persistentPath;
-        private static string _fileName;
         private static string _path;
         private static string _json;
         private static bool _isInit = false;
@@ -15,24 +14,23 @@ namespace InvestmentTracker.Core
         public static void Initialize()
         {
             _persistentPath = $"{Application.persistentDataPath}{Path.AltDirectorySeparatorChar}";
-            _fileName = "DefaultSave.json";
             _isInit = true;
         }
 
-        public static void SaveData(Element[] data)
+        public static void SaveData(Element[] data, string fileName)
         {
             if (!_isInit) Initialize();
-            _path = $"{_persistentPath}{_fileName}";
+            _path = $"{_persistentPath}{fileName}";
             _json = JsonHelper.ToJson(data);
 
             using StreamWriter writer = new StreamWriter(_path);
             writer.Write(_json);
         }
 
-        public static Element[] LoadData()
+        public static Element[] LoadData(string fileName)
         {
             if (!_isInit) Initialize();
-            _path = $"{_persistentPath}{_fileName}";
+            _path = $"{_persistentPath}{fileName}";
             using StreamReader reader = new StreamReader(_path);
             _json = reader.ReadToEnd();
             _dataElements = JsonHelper.FromJson<Element>(_json);

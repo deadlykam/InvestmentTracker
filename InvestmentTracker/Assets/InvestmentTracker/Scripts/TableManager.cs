@@ -10,6 +10,7 @@ namespace InvestmentTracker
         [Header("TableManager Global Properties")]
         [SerializeField] private Data _data;
         [SerializeField] private ActionNoneObserver _listener;
+        [SerializeField] private ActionNoneObserver _listenerSave;
 
         [Header("TableManager Local Properties")]
         [SerializeField] private TextMeshProUGUI _textInvested;
@@ -20,6 +21,7 @@ namespace InvestmentTracker
         [SerializeField] private TextMeshProUGUI _textGain;
         [SerializeField] private TextMeshProUGUI _textSellPrice;
         [SerializeField] private TextMeshProUGUI _textBTCSellPrice;
+        [SerializeField] private Canvas _saveIconCanvas;
 
         private float _invested, _priceBought, _btc, _gainAmount, _gainTotal, _gain, _sellPrice, _btcSellPrice;
         private bool _isUpdate;
@@ -30,6 +32,7 @@ namespace InvestmentTracker
             _data.Reset();
             _data.Subscribe(NewElement);
             _listener.Subscribe(Listener);
+            _listenerSave.Subscribe(SaveSuccessful);
         }
 
         private void Update()
@@ -47,8 +50,17 @@ namespace InvestmentTracker
             }
         }
 
-        public void BtnSave() => _data.SaveData();
-        public void BtnLoad() => _data.LoadData();
+        public void BtnSave()
+        {
+            _saveIconCanvas.enabled = false;
+            _data.SaveData();
+        }
+
+        public void BtnLoad()
+        {
+            _data.LoadData();
+            _saveIconCanvas.enabled = true;
+        }
 
         private void Listener()
         {
@@ -86,5 +98,7 @@ namespace InvestmentTracker
             _textGainTotal.text = _gainTotal.ToString();
             _textGain.text = (_gain / _data.Size()).ToString();
         }
+
+        private void SaveSuccessful() => _saveIconCanvas.enabled = true;
     }
 }

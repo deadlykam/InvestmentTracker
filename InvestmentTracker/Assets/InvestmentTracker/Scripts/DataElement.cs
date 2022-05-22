@@ -10,6 +10,7 @@ namespace InvestmentTracker
     {
         [Header("DataElement Global Properties")]
         [SerializeField] private FloatFixedVariable _targetXTime;
+        [SerializeField] private IntVec3Observer _selectedValue;
 
         [Header("DataElement Local Properties")]
         [SerializeField] private TextMeshProUGUI _id;
@@ -28,10 +29,12 @@ namespace InvestmentTracker
         [SerializeField] private Color _colLoss;
         [SerializeField] private Color _colNutral;
 
+        private RectTransform _rectTransform;
         private Element _data;
         private float _gainMax = 50.0f;
         private float _gainMin = -25.0f;
 
+        private void Start() => TryGetComponent(out _rectTransform);
 
         public void SetDataElement(Element element)
         {
@@ -59,5 +62,7 @@ namespace InvestmentTracker
                 else _indicator.color = Color.Lerp(_colNutral, _colLoss, (_data.gain / _gainMin) >= 1 ? 1 : (_data.gain / _gainMin));
             }
         }
+
+        public void BtnHighlight() => _selectedValue.SetValue(_data.id, _rectTransform.position);
     }
 }

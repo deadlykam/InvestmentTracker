@@ -4,8 +4,8 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - _stockPrice: {fileID: 11400000, guid: 6a12c80b6c35d094992c6f9131f39635, type: 2}
   - _targetXTime: {fileID: 11400000, guid: de1be534e8650754d83f10b4e942b8cd, type: 2}
+  - _selectedValue: {fileID: 11400000, guid: f83f53e6ee3e6bc4aac84a18f96ad6da, type: 2}
   - _id: {instanceID: 0}
   - _date: {instanceID: 0}
   - _invested: {instanceID: 0}
@@ -17,6 +17,7 @@ MonoImporter:
   - _sellPrice: {instanceID: 0}
   - _btcSellPrice: {instanceID: 0}
   - _platform: {instanceID: 0}
+  - _indicator: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

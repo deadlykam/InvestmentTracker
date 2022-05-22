@@ -10,6 +10,7 @@ namespace InvestmentTracker
         [Header("Table Global Properties")]
         [SerializeField] private Data _data;
         [SerializeField] private ActionNoneObserver _listener;
+        [SerializeField] private IntVec3Observer _listenerHighlight;
 
         [Header("Table Local Properties")]
         [SerializeField] private Transform _dataHolder;
@@ -18,6 +19,8 @@ namespace InvestmentTracker
         [SerializeField] private Transform _prefabData2;
         [SerializeField] private RectTransform _contentTransform;
         [SerializeField] private float _addOffset;
+        [SerializeField] private Canvas _selectHighlightCanvas;
+        [SerializeField] private RectTransform _selectHighlightTransform;
 
         private List<DataElement> _dataElements;
         private DataElement _dataElement;
@@ -28,10 +31,12 @@ namespace InvestmentTracker
         private bool _data1Style = true;
         private bool _isUpdate;
         private int _pointer;
+        private int _idSelected = -1;
 
         private void Start()
         {
             _listener.Subscribe(Listener);
+            _listenerHighlight.Subscribe(SetHighlight);
             _dataElements = new List<DataElement>();
             _data.Subscribe(AddData);
             _posTemp.y = -_addOffset; // Making sure the first temp added is in the 0th position
@@ -47,10 +52,51 @@ namespace InvestmentTracker
             }
         }
 
+        public void Sold()
+        {
+            if (_idSelected != -1)
+            {
+                while (_dataElements.Count != 0)
+                {
+                    Destroy(_dataElements[0].gameObject);
+                    _dataElements.RemoveAt(0);
+                }
+
+                _posTemp.y = -_addOffset; // Making sure the first temp added is in the 0th position
+                _data.SoldData(_idSelected);
+                _idSelected = -1;
+                _selectHighlightCanvas.enabled = false;
+            }
+        }
+
+        public void RemoveData()
+        {
+            if (_idSelected != -1)
+            {
+                while (_dataElements.Count != 0)
+                {
+                    Destroy(_dataElements[0].gameObject);
+                    _dataElements.RemoveAt(0);
+                }
+
+                _posTemp.y = -_addOffset; // Making sure the first temp added is in the 0th position
+                _data.RemoveData(_idSelected);
+                _idSelected = -1;
+                _selectHighlightCanvas.enabled = false;
+            }
+        }
+
         private void Listener() 
         {
             _isUpdate = true;
             _pointer = 0;
+        }
+
+        private void SetHighlight(int id, Vector3 pos)
+        {
+            if (!_selectHighlightCanvas.enabled) _selectHighlightCanvas.enabled = true;
+            _selectHighlightTransform.position = pos;
+            _idSelected = id;
         }
 
         private void AddData(Element element)
