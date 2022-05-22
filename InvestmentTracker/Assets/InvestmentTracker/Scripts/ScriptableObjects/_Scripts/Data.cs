@@ -19,12 +19,15 @@ namespace InvestmentTracker.ScriptableObjects.Scripts
         private List<Element> _data;
         private List<Element> _dataSold;
         private Element[] _tempData;
+        private Element[] _dataSort;
         private Element _element;
         private Action<Element> _observers;
         private int _index;
         private string _fileNameTable = "DefaultSave.json";
         private string _fileNameSold = "DefaultSoldSave.json";
-        private bool _isAscend;
+        private bool _isAscend = true;
+        private int _sortA, _sortB;
+        private Element _swap;
 
         private void Awake()
         {
@@ -59,6 +62,7 @@ namespace InvestmentTracker.ScriptableObjects.Scripts
 
         public Element[] GetData() => _data.ToArray();
         public Element[] GetDataSold() => _dataSold.ToArray();
+        public Element[] GetDataSort() => _dataSort;
 
         public void SaveData()
         {
@@ -85,10 +89,71 @@ namespace InvestmentTracker.ScriptableObjects.Scripts
 
         public int Size() => _data.Count;
         public int SizeSold() => _dataSold.Count;
+        public int SizeSort() => _dataSort.Length;
         public void Subscribe(Action<Element> observer) => _observers += observer;
         public void Unsubscribe(Action<Element> observer) => _observers -= observer;
         public void Trigger(Element element) => _observers(element);
         
+        public void SortID()
+        {
+            _dataSort = SortHelper.SortID(_data.ToArray(), _isAscend);
+            _isAscend = !_isAscend;
+        }
+
+        public void SortInvested()
+        {
+            _dataSort = SortHelper.SortInvested(_data.ToArray(), _isAscend);
+            _isAscend = !_isAscend;
+        }
+
+        public void SortPrice()
+        {
+            _dataSort = SortHelper.SortPrice(_data.ToArray(), _isAscend);
+            _isAscend = !_isAscend;
+        }
+
+        public void SortBTC()
+        {
+            _dataSort = SortHelper.SortBTC(_data.ToArray(), _isAscend);
+            _isAscend = !_isAscend;
+        }
+
+        public void SortSellPrice()
+        {
+            _dataSort = SortHelper.SortSellPrice(_data.ToArray(), _isAscend);
+            _isAscend = !_isAscend;
+        }
+
+        public void SortBTCSellPrice()
+        {
+            _dataSort = SortHelper.SortBTCSellPrice(_data.ToArray(), _isAscend);
+            _isAscend = !_isAscend;
+        }
+
+        public void SortPlatform()
+        {
+            _dataSort = SortHelper.SortPlatform(_data.ToArray(), _isAscend);
+            _isAscend = !_isAscend;
+        }
+
+        public void SortGain()
+        {
+            _dataSort = SortHelper.SortGain(_data.ToArray(), _isAscend);
+            _isAscend = !_isAscend;
+        }
+
+        public void SortGainAmount()
+        {
+            _dataSort = SortHelper.SortGainAmount(_data.ToArray(), _isAscend);
+            _isAscend = !_isAscend;
+        }
+
+        public void SortGainTotal()
+        {
+            _dataSort = SortHelper.SortGainTotal(_data.ToArray(), _isAscend);
+            _isAscend = !_isAscend;
+        }
+
         public void Reset()
         {
             _data.Clear();
