@@ -39,7 +39,7 @@ namespace InvestmentTracker
         {
             if (_isUpdate)
             {
-                UpdateValues(_data.GetData()[_pointer].gainAmount, _data.GetData()[_pointer].gainTotal, _data.GetData()[_pointer].gain);
+                UpdateValues(_data.GetData()[_pointer]);
                 _pointer++;
 
                 if(_pointer >= _data.Size())
@@ -66,37 +66,44 @@ namespace InvestmentTracker
         {
             _isUpdate = true;
             _pointer = 0;
+            _invested = 0;
+            _priceBought = 0;
+            _btc = 0;
+            _sellPrice = 0;
+            _btcSellPrice = 0;
+            _gainAmount = 0;
+            _gainTotal = 0;
+            _gain = 0;
         }
 
         private void NewElement(Element element)
+        {
+            UpdateValues(element);
+            UpdateValuesText();
+        }
+
+        private void UpdateValues(Element element)
         {
             _invested += element.invested;
             _priceBought += element.priceBought;
             _btc += element.btc;
             _sellPrice += element.sellPrice;
             _btcSellPrice += element.btcSellPrice;
-            UpdateValues(element.gainAmount, element.gainTotal, element.gain);
-
-            _textInvested.text = _invested.ToString();
-            _textPriceBought.text = (_priceBought / _data.Size()).ToString();
-            _textBTC.text = _btc.ToString();
-            _textSellPrice.text = _sellPrice.ToString();
-            _textBTCSellPrice.text = (_btcSellPrice / _data.Size()).ToString();
-            UpdateValuesText();
-        }
-
-        private void UpdateValues(float gainAmount, float gainTotal, float gain)
-        {
-            _gainAmount += gainAmount;
-            _gainTotal += gainTotal;
-            _gain += gain;
+            _gainAmount += element.gainAmount;
+            _gainTotal += element.gainTotal;
+            _gain += element.gain;
         }
 
         private void UpdateValuesText()
         {
-            _textGainAmount.text = _gainAmount.ToString();
-            _textGainTotal.text = _gainTotal.ToString();
-            _textGain.text = (_gain / _data.Size()).ToString();
+            _textInvested.text = _invested.ToString();
+            _textPriceBought.text = (_priceBought / _data.Size()).ToString();
+            _textBTC.text = _btc.ToString("0.00000000");
+            _textSellPrice.text = _sellPrice.ToString();
+            _textBTCSellPrice.text = (_btcSellPrice / _data.Size()).ToString();
+            _textGainAmount.text = _gainAmount.ToString("0.00");
+            _textGainTotal.text = _gainTotal.ToString("0.00");
+            _textGain.text = (_gain / _data.Size()).ToString("0.00");
         }
 
         private void SaveSuccessful() => _saveIconCanvas.enabled = true;

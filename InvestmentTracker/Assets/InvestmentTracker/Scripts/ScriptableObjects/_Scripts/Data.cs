@@ -57,6 +57,7 @@ namespace InvestmentTracker.ScriptableObjects.Scripts
         }
 
         public Element[] GetData() => _data.ToArray();
+        public Element[] GetDataSold() => _dataSold.ToArray();
 
         public void SaveData()
         {
@@ -82,6 +83,7 @@ namespace InvestmentTracker.ScriptableObjects.Scripts
         }
 
         public int Size() => _data.Count;
+        public int SizeSold() => _dataSold.Count;
         public void Subscribe(Action<Element> observer) => _observers += observer;
         public void Unsubscribe(Action<Element> observer) => _observers -= observer;
         public void Trigger(Element element) => _observers(element);
@@ -89,6 +91,7 @@ namespace InvestmentTracker.ScriptableObjects.Scripts
         public void Reset()
         {
             _data.Clear();
+            _dataSold.Clear();
             _uig.Reset();
         }
     }

@@ -40,13 +40,6 @@ namespace InvestmentTracker
         {
             _data = element;
             _id.text = _data.id.ToString();
-            _date.text = _data.date;
-            _invested.text = _data.invested.ToString();
-            _price.text = _data.priceBought.ToString();
-            _stockAmount.text = _data.btc.ToString();
-            _platform.text = _data.platform.ToString();
-            _sellPrice.text = _data.sellPrice.ToString();
-            _btcSellPrice.text = _data.btcSellPrice.ToString();
             UpdateData();
         }
 
@@ -54,9 +47,16 @@ namespace InvestmentTracker
         {
             if (_data != null)
             {
-                _gainAmount.text = _data.gainAmount.ToString();
-                _gainTotal.text = _data.gainTotal.ToString();
-                _gain.text = _data.gain.ToString();
+                _date.text = _data.date;
+                _invested.text = _data.invested.ToString();
+                _price.text = _data.priceBought.ToString();
+                _stockAmount.text = _data.btc.ToString("0.00000000");
+                _platform.text = _data.platform.ToString();
+                _sellPrice.text = _data.sellPrice.ToString();
+                _btcSellPrice.text = _data.btcSellPrice.ToString();
+                _gainAmount.text = _data.gainAmount.ToString("0.00");
+                _gainTotal.text = _data.gainTotal.ToString("0.00");
+                _gain.text = _data.gain.ToString("0.00");
 
                 if (_data.gain >= 0f) _indicator.color = Color.Lerp(_colNutral, _colGain, (_data.gain / _gainMax) >= 1f ? 1 : _data.gain / _gainMax);
                 else _indicator.color = Color.Lerp(_colNutral, _colLoss, (_data.gain / _gainMin) >= 1 ? 1 : (_data.gain / _gainMin));
