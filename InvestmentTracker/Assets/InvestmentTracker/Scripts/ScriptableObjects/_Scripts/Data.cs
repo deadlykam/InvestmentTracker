@@ -24,6 +24,7 @@ namespace InvestmentTracker.ScriptableObjects.Scripts
         private int _index;
         private string _fileNameTable = "DefaultSave.json";
         private string _fileNameSold = "DefaultSoldSave.json";
+        private bool _isAscend;
 
         private void Awake()
         {
