@@ -698,6 +698,7 @@ GameObject:
   - component: {fileID: 64487886}
   - component: {fileID: 64487888}
   - component: {fileID: 64487887}
+  - component: {fileID: 64487889}
   m_Layer: 5
   m_Name: BTCSellPrice
   m_TagString: Untagged
@@ -763,6 +764,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 64487885}
   m_CullTransparentMesh: 1
+--- !u!114 &64487889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64487885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 475635959}
+          m_TargetAssemblyTypeName: InvestmentTracker.Table, Assembly-CSharp
+          m_MethodName: BtnSearchBTCSellPrice
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &70099066
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,7 +1153,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.7
+  m_fontSize: 28.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1184,6 +1214,7 @@ GameObject:
   - component: {fileID: 175815239}
   - component: {fileID: 175815241}
   - component: {fileID: 175815240}
+  - component: {fileID: 175815242}
   m_Layer: 5
   m_Name: Gain
   m_TagString: Untagged
@@ -1249,6 +1280,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 175815238}
   m_CullTransparentMesh: 1
+--- !u!114 &175815242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175815238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 475635959}
+          m_TargetAssemblyTypeName: InvestmentTracker.Table, Assembly-CSharp
+          m_MethodName: BtnSearchGain
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &176072138
 GameObject:
   m_ObjectHideFlags: 0
@@ -2108,6 +2168,7 @@ GameObject:
   - component: {fileID: 236268205}
   - component: {fileID: 236268207}
   - component: {fileID: 236268206}
+  - component: {fileID: 236268208}
   m_Layer: 5
   m_Name: StockAmount
   m_TagString: Untagged
@@ -2173,6 +2234,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 236268204}
   m_CullTransparentMesh: 1
+--- !u!114 &236268208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236268204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 475635959}
+          m_TargetAssemblyTypeName: InvestmentTracker.Table, Assembly-CSharp
+          m_MethodName: BtnSearchBTC
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &247216217
 GameObject:
   m_ObjectHideFlags: 0
@@ -4124,7 +4214,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 899014771}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.85406536
+  m_Size: 0.85406524
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7793,6 +7883,7 @@ GameObject:
   - component: {fileID: 863304874}
   - component: {fileID: 863304876}
   - component: {fileID: 863304875}
+  - component: {fileID: 863304877}
   m_Layer: 5
   m_Name: Platform
   m_TagString: Untagged
@@ -7858,6 +7949,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 863304873}
   m_CullTransparentMesh: 1
+--- !u!114 &863304877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863304873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 475635959}
+          m_TargetAssemblyTypeName: InvestmentTracker.Table, Assembly-CSharp
+          m_MethodName: BtnSearchPlatform
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &881900257
 GameObject:
   m_ObjectHideFlags: 0
@@ -8384,6 +8504,7 @@ GameObject:
   - component: {fileID: 900105511}
   - component: {fileID: 900105513}
   - component: {fileID: 900105512}
+  - component: {fileID: 900105514}
   m_Layer: 5
   m_Name: Invested
   m_TagString: Untagged
@@ -8449,6 +8570,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 900105510}
   m_CullTransparentMesh: 1
+--- !u!114 &900105514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900105510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 475635959}
+          m_TargetAssemblyTypeName: InvestmentTracker.Table, Assembly-CSharp
+          m_MethodName: BtnSearchInvested
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &904036192
 GameObject:
   m_ObjectHideFlags: 0
@@ -9056,6 +9206,7 @@ GameObject:
   - component: {fileID: 956165042}
   - component: {fileID: 956165044}
   - component: {fileID: 956165043}
+  - component: {fileID: 956165045}
   m_Layer: 5
   m_Name: ID
   m_TagString: Untagged
@@ -9121,6 +9272,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956165041}
   m_CullTransparentMesh: 1
+--- !u!114 &956165045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956165041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 475635959}
+          m_TargetAssemblyTypeName: InvestmentTracker.Table, Assembly-CSharp
+          m_MethodName: BtnSearchID
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &968354662
 GameObject:
   m_ObjectHideFlags: 0
@@ -12050,6 +12230,7 @@ GameObject:
   - component: {fileID: 1198494618}
   - component: {fileID: 1198494620}
   - component: {fileID: 1198494619}
+  - component: {fileID: 1198494621}
   m_Layer: 5
   m_Name: Date
   m_TagString: Untagged
@@ -12115,6 +12296,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198494617}
   m_CullTransparentMesh: 1
+--- !u!114 &1198494621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198494617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 475635959}
+          m_TargetAssemblyTypeName: InvestmentTracker.Table, Assembly-CSharp
+          m_MethodName: BtnSearchID
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1200273969
 GameObject:
   m_ObjectHideFlags: 0
@@ -13864,6 +14074,7 @@ GameObject:
   - component: {fileID: 1513010044}
   - component: {fileID: 1513010046}
   - component: {fileID: 1513010045}
+  - component: {fileID: 1513010047}
   m_Layer: 5
   m_Name: GainAmount
   m_TagString: Untagged
@@ -13929,6 +14140,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1513010043}
   m_CullTransparentMesh: 1
+--- !u!114 &1513010047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513010043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 475635959}
+          m_TargetAssemblyTypeName: InvestmentTracker.Table, Assembly-CSharp
+          m_MethodName: BtnSearchGainAmount
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1519733735
 GameObject:
   m_ObjectHideFlags: 0
@@ -15619,6 +15859,7 @@ GameObject:
   - component: {fileID: 1667172741}
   - component: {fileID: 1667172743}
   - component: {fileID: 1667172742}
+  - component: {fileID: 1667172744}
   m_Layer: 5
   m_Name: SellPrice
   m_TagString: Untagged
@@ -15684,6 +15925,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1667172740}
   m_CullTransparentMesh: 1
+--- !u!114 &1667172744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667172740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 475635959}
+          m_TargetAssemblyTypeName: InvestmentTracker.Table, Assembly-CSharp
+          m_MethodName: BtnSearchSellPrice
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1683477581
 GameObject:
   m_ObjectHideFlags: 0
@@ -16683,6 +16953,7 @@ GameObject:
   - component: {fileID: 1717618459}
   - component: {fileID: 1717618461}
   - component: {fileID: 1717618460}
+  - component: {fileID: 1717618462}
   m_Layer: 5
   m_Name: GainTotal
   m_TagString: Untagged
@@ -16748,6 +17019,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717618458}
   m_CullTransparentMesh: 1
+--- !u!114 &1717618462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717618458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 475635959}
+          m_TargetAssemblyTypeName: InvestmentTracker.Table, Assembly-CSharp
+          m_MethodName: BtnSearchGainTotal
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1720499339
 GameObject:
   m_ObjectHideFlags: 0
@@ -17034,6 +17334,7 @@ GameObject:
   - component: {fileID: 1722581053}
   - component: {fileID: 1722581055}
   - component: {fileID: 1722581054}
+  - component: {fileID: 1722581056}
   m_Layer: 5
   m_Name: Price
   m_TagString: Untagged
@@ -17099,6 +17400,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722581052}
   m_CullTransparentMesh: 1
+--- !u!114 &1722581056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722581052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 475635959}
+          m_TargetAssemblyTypeName: InvestmentTracker.Table, Assembly-CSharp
+          m_MethodName: BtnSearchPrice
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1736460731
 GameObject:
   m_ObjectHideFlags: 0
