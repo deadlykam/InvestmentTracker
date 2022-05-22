@@ -6,11 +6,14 @@ MonoImporter:
   defaultReferences:
   - _data: {fileID: 11400000, guid: 6ddb874f3d997c64682e2f1e0fd95553, type: 2}
   - _listener: {fileID: 11400000, guid: 81a62aef15f1a91408a3ea0957eda1e9, type: 2}
+  - _listenerHighlight: {fileID: 11400000, guid: f83f53e6ee3e6bc4aac84a18f96ad6da, type: 2}
   - _dataHolder: {instanceID: 0}
   - _prefabHelper: {instanceID: 0}
   - _prefabData1: {instanceID: 0}
   - _prefabData2: {instanceID: 0}
   - _contentTransform: {instanceID: 0}
+  - _selectHighlightCanvas: {instanceID: 0}
+  - _selectHighlightTransform: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
