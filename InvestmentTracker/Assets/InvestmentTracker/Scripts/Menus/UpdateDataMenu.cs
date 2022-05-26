@@ -36,7 +36,7 @@ namespace InvestmentTracker.Menus
                     else _date.Select();
                 }
 
-                if (Input.GetKeyDown(KeyCode.LeftControl)) UpdateData();
+                //if (Input.GetKeyDown(KeyCode.LeftControl)) UpdateData(); // Update Key
             }
         }
 

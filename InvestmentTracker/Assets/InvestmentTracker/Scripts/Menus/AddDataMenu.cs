@@ -33,7 +33,7 @@ namespace InvestmentTracker.Menus
                     else _date.Select();
                 }
 
-                if (Input.GetKeyDown(KeyCode.LeftControl)) AddData();
+                //if (Input.GetKeyDown(KeyCode.LeftControl)) AddData(); // Add Key
             }
         }
 
