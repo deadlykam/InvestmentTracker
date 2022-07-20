@@ -10,12 +10,15 @@ namespace InvestmentTracker
         [Header("StockPriceManager Global Price")]
         [SerializeField] private Data _data;
         [SerializeField] private FloatVariable _stockPrice;
-        [SerializeField] private FloatFixedVariable _targetXTime;
+        [SerializeField] private FloatVariable _rOIx;
+        [SerializeField] private FloatFixedVariable _defaultROIx;
         [SerializeField] private ActionNoneObserver _observers;
+        [SerializeField] private ActionNone _triggerUpdate;
 
         [Header("StockPriceManager Local Price")]
         [SerializeField] private TextMeshProUGUI _stockValue;
         [SerializeField] private TMP_InputField _customStockValueInput;
+        [SerializeField] private TMP_InputField _customROIxValueInput;
         [SerializeField] private string _url;
         [SerializeField] private float _refreshRate;
         [SerializeField] private float _flashTime;
@@ -40,7 +43,11 @@ namespace InvestmentTracker
             _jsonManager.Subscribe(DataListener);
             _jsonManager.Trigger();
             _timeCur = _refreshRate;
+            _rOIx.SetValue(_defaultROIx.GetValue()); // Setting the default ROIx value
+            _triggerUpdate.SetDelegate(UpdateROIxValue);
         }
+
+        private void Start() => UpdateROIxValue();
 
         private void Update()
         {
@@ -67,7 +74,7 @@ namespace InvestmentTracker
 
             if (_isUpdateValues) 
             {
-                _data.GetData()[_pointer].UpdateValues(_stockPrice.GetValue(), _targetXTime.GetValue());
+                _data.GetData()[_pointer].UpdateValues(_stockPrice.GetValue(), _rOIx.GetValue());
                 _pointer++;
 
                 if(_pointer >= _data.Size())
@@ -98,6 +105,13 @@ namespace InvestmentTracker
             }
         }
 
+        public void SetROIxValue()
+        {
+            _rOIx.SetValue(float.Parse(_customROIxValueInput.text));
+            _isUpdateValues = true;
+            _pointer = 0;
+        }
+
         private void DataListener(JsonElement json)
         {
             if (_curStockValue != json.amount)
@@ -120,5 +134,7 @@ namespace InvestmentTracker
             if (!_isCustomStock) _stockPrice.SetValue(_curStockValue);
             else _stockPrice.SetValue(_customStockValue);
         }
+
+        private void UpdateROIxValue() => _customROIxValueInput.text = $"{_rOIx.GetValue().ToString()}";
     }
 }

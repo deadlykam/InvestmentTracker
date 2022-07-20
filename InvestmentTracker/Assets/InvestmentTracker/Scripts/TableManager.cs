@@ -11,6 +11,7 @@ namespace InvestmentTracker
         [SerializeField] private Data _data;
         [SerializeField] private ActionNoneObserver _listener;
         [SerializeField] private ActionNoneObserver _listenerSave;
+        [SerializeField] private ActionNone _triggerUpdate;
 
         [Header("TableManager Local Properties")]
         [SerializeField] private TextMeshProUGUI _textInvested;
@@ -33,6 +34,7 @@ namespace InvestmentTracker
             _data.Subscribe(NewElement);
             _listener.Subscribe(Listener);
             _listenerSave.Subscribe(SaveSuccessful);
+            _triggerUpdate.SetDelegate(Listener);
         }
 
         private void Update()
