@@ -9,7 +9,6 @@ namespace InvestmentTracker
     public class DataElement : MonoBehaviour
     {
         [Header("DataElement Global Properties")]
-        [SerializeField] private FloatFixedVariable _targetXTime;
         [SerializeField] private IntVec3Observer _selectedValue;
 
         [Header("DataElement Local Properties")]
