@@ -11,6 +11,7 @@ namespace InvestmentTracker
         [SerializeField] private Data _data;
         [SerializeField] private ActionNoneObserver _listener;
         [SerializeField] private IntVec3Observer _listenerHighlight;
+        [SerializeField] private ActionNone _removeAllTableData;
 
         [Header("Table Local Properties")]
         [SerializeField] private Transform _dataHolder;
@@ -33,6 +34,8 @@ namespace InvestmentTracker
         private int _pointer;
         private int _idSelected = -1;
         private int _index;
+
+        private void Awake() => _removeAllTableData.SetDelegate(RemoveAllData);
 
         private void Start()
         {

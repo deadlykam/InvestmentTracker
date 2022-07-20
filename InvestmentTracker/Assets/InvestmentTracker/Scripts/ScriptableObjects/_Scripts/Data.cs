@@ -13,8 +13,11 @@ namespace InvestmentTracker.ScriptableObjects.Scripts
         [Header("Data Global Properties")]
         [SerializeField] private UniqueIDGenerator _uig;
         [SerializeField] private FloatVariable _stockPrice;
-        [SerializeField] private FloatFixedVariable _targetXTime;
+        [SerializeField] private FloatVariable _rOIx;
         [SerializeField] private ActionNoneObserver _observersSave;
+        [SerializeField] private ActionNone _removeAllTableData;
+        [SerializeField] private ActionNone _triggerTableManagerUpdate;
+        [SerializeField] private ActionNone _triggerStockPriceManagerUpdate;
 
         private List<Element> _data;
         private List<Element> _dataSold;
@@ -25,9 +28,8 @@ namespace InvestmentTracker.ScriptableObjects.Scripts
         private int _index;
         private string _fileNameTable = "DefaultSave.json";
         private string _fileNameSold = "DefaultSoldSave.json";
+        private string _fileNameROIx = "DefaultROIx.json";
         private bool _isAscend = true;
-        private int _sortA, _sortB;
-        private Element _swap;
 
         private void Awake()
         {
@@ -39,7 +41,7 @@ namespace InvestmentTracker.ScriptableObjects.Scripts
 
         public void AddData(string date, float invested, float priceBought, float _btc, string platform)
         {
-            _element = new Element(_uig.GetID(), date, invested, priceBought, _btc, platform, _stockPrice.GetValue(), _targetXTime.GetValue());
+            _element = new Element(_uig.GetID(), date, invested, priceBought, _btc, platform, _stockPrice.GetValue(), _rOIx.GetValue());
             _data.Add(_element);
             Trigger(_element);
             _element = null;
@@ -68,23 +70,27 @@ namespace InvestmentTracker.ScriptableObjects.Scripts
         {
             SaveLoad.SaveData(GetData(), _fileNameTable);
             SaveLoad.SaveData(_dataSold.ToArray(), _fileNameSold);
+            SaveLoad.SaveData(_rOIx.GetValue(), _fileNameROIx);
             _observersSave.Trigger();
         }
 
         public void LoadData()
         {
+            Reset(); // Resetting id and data
+            _removeAllTableData.CallDelegate(); // Removing all table data
+            _rOIx.SetValue(SaveLoad.LoadDataFloat(_fileNameROIx)); // Loading ROIx value
             _tempData = SaveLoad.LoadData(_fileNameTable);
-            _uig.Reset();
             for (_index = 0; _index < _tempData.Length; _index++) AddData(_tempData[_index].date, _tempData[_index].invested, _tempData[_index].priceBought, _tempData[_index].btc, _tempData[_index].platform);
-
             _tempData = SaveLoad.LoadData(_fileNameSold);
+            
             for (_index = 0; _index < _tempData.Length; _index++)
             {
-                _element = new Element(-1, _tempData[_index].date, _tempData[_index].invested, _tempData[_index].priceBought, _tempData[_index].btc, _tempData[_index].platform, _stockPrice.GetValue(), _targetXTime.GetValue());
+                _element = new Element(-1, _tempData[_index].date, _tempData[_index].invested, _tempData[_index].priceBought, _tempData[_index].btc, _tempData[_index].platform, _stockPrice.GetValue(), _rOIx.GetValue());
                 _dataSold.Add(_element);
             }
-
             _element = null;
+            _triggerTableManagerUpdate.CallDelegate();
+            _triggerStockPriceManagerUpdate.CallDelegate();
         }
 
         public int Size() => _data.Count;
