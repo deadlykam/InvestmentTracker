@@ -4,15 +4,14 @@ using UnityEngine;
 
 namespace InvestmentTracker.Menus
 {
-    public class UpdateDataMenu : BaseMenu
+    public class UpdateDataMenu : BaseMenuCanvasGroup
     {
         [Header("AddDataMenu Global Properties")]
         [SerializeField] private Data _data;
         [SerializeField] private IntVec3Observer _listenerHighlight;
-        [SerializeField] private ActionNoneObserver _observers;
+        [SerializeField] private ActionNone _triggerUpdateData;
 
         [Header("AddDataMenu Local Properties")]
-        [SerializeField] private GameObject _screenDisabler;
         [SerializeField] private TMP_InputField _date;
         [SerializeField] private TMP_InputField _invested;
         [SerializeField] private TMP_InputField _price;
@@ -47,7 +46,7 @@ namespace InvestmentTracker.Menus
             _data.GetData()[_id].priceBought = float.Parse(_price.text);
             _data.GetData()[_id].btc = float.Parse(_btc.text);
             _data.GetData()[_id].platform = _platform.text;
-            _observers.Trigger();
+            _triggerUpdateData.CallDelegate();
             HideMenu();
         }
 
@@ -56,19 +55,12 @@ namespace InvestmentTracker.Menus
             if (_id != -1)
             {
                 base.ShowMenu();
-                _screenDisabler.SetActive(true);
                 _date.text = _data.GetData()[_id].date;
                 _invested.text = _data.GetData()[_id].invested.ToString();
                 _price.text = _data.GetData()[_id].priceBought.ToString();
                 _btc.text = _data.GetData()[_id].btc.ToString();
                 _platform.text = _data.GetData()[_id].platform;
             }
-        }
-
-        public override void HideMenu()
-        {
-            base.HideMenu();
-            _screenDisabler.SetActive(false);
         }
 
         private void SelectedData(int id, Vector3 pos) => _id = id;

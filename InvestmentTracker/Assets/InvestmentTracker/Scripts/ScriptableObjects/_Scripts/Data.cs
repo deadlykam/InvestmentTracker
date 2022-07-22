@@ -91,6 +91,7 @@ namespace InvestmentTracker.ScriptableObjects.Scripts
             _element = null;
             _triggerTableManagerUpdate.CallDelegate();
             _triggerStockPriceManagerUpdate.CallDelegate();
+            _observersSave.Trigger();
         }
 
         public int Size() => _data.Count;
@@ -99,6 +100,7 @@ namespace InvestmentTracker.ScriptableObjects.Scripts
         public void Subscribe(Action<Element> observer) => _observers += observer;
         public void Unsubscribe(Action<Element> observer) => _observers -= observer;
         public void Trigger(Element element) => _observers(element);
+        public bool IsSaveFileExist() => SaveLoad.IsFileExist(_fileNameTable);
         
         public void SortID()
         {
