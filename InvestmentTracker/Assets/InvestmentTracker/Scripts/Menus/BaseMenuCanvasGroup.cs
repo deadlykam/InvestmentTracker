@@ -10,6 +10,7 @@ namespace InvestmentTracker.Menus
         public override void ShowMenu() => SetMainGroupCanvas(true);
         public override void HideMenu() => SetMainGroupCanvas(false);
         public override bool IsShown() => _mainCanvasGroup.alpha > 0f;
+        public void SetAlpha(float value) => _mainCanvasGroup.alpha = value;
 
         private void SetMainGroupCanvas(bool isEnable)
         {

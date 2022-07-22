@@ -1,4 +1,5 @@
 using InvestmentTracker.Core;
+using InvestmentTracker.Menus;
 using InvestmentTracker.ScriptableObjects.Scripts;
 using TMPro;
 using UnityEngine;
@@ -22,7 +23,7 @@ namespace InvestmentTracker
         [SerializeField] private TextMeshProUGUI _textGain;
         [SerializeField] private TextMeshProUGUI _textSellPrice;
         [SerializeField] private TextMeshProUGUI _textBTCSellPrice;
-        [SerializeField] private Canvas _saveIconCanvas;
+        [SerializeField] private BaseMenu _saveIconMenu;
         [SerializeField] private CanvasGroup _savePromptCanvasGroup;
 
         private float _invested, _priceBought, _btc, _gainAmount, _gainTotal, _gain, _sellPrice, _btcSellPrice;
@@ -45,7 +46,7 @@ namespace InvestmentTracker
                 UpdateValues(_data.GetData()[_pointer]);
                 _pointer++;
 
-                if(_pointer >= _data.Size())
+                if (_pointer >= _data.Size())
                 {
                     UpdateValuesText();
                     _isUpdate = false;
@@ -69,8 +70,8 @@ namespace InvestmentTracker
 
         public void BtnLoad()
         {
+            _saveIconMenu.ShowMenu();
             _data.LoadData();
-            _saveIconCanvas.enabled = true;
         }
 
         private void Listener()
@@ -89,7 +90,7 @@ namespace InvestmentTracker
 
         private void SaveData()
         {
-            _saveIconCanvas.enabled = false;
+            _saveIconMenu.ShowMenu();
             _data.SaveData();
         }
 
@@ -130,6 +131,6 @@ namespace InvestmentTracker
             _textGain.text = (_gain / _data.Size()).ToString("0.00");
         }
 
-        private void SaveSuccessful() => _saveIconCanvas.enabled = true;
+        private void SaveSuccessful() => _saveIconMenu.HideMenu();
     }
 }

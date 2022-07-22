@@ -6960,6 +6960,8 @@ GameObject:
   - component: {fileID: 628458499}
   - component: {fileID: 628458498}
   - component: {fileID: 628458497}
+  - component: {fileID: 628458500}
+  - component: {fileID: 628458501}
   m_Layer: 5
   m_Name: SaveSignCanvas
   m_TagString: Untagged
@@ -7034,7 +7036,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628458495}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -7048,6 +7050,33 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!225 &628458500
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628458495}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
+--- !u!114 &628458501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628458495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c0fd2961977e047a1cac4cb7d69441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainCanvas: {fileID: 628458499}
+  _mainCanvasGroup: {fileID: 628458500}
+  _timeSeconds: {fileID: 11400000, guid: 01ba934d3dadac84f970474340893111, type: 2}
 --- !u!1 &642070457
 GameObject:
   m_ObjectHideFlags: 0
@@ -7732,7 +7761,6 @@ MonoBehaviour:
   _mainCanvasGroup: {fileID: 661941205}
   _data: {fileID: 11400000, guid: 6ddb874f3d997c64682e2f1e0fd95553, type: 2}
   _listenerHighlight: {fileID: 11400000, guid: f83f53e6ee3e6bc4aac84a18f96ad6da, type: 2}
-  _observers: {fileID: 11400000, guid: 81a62aef15f1a91408a3ea0957eda1e9, type: 2}
   _triggerUpdateData: {fileID: 11400000, guid: 867e4e90a590887409f31d89625775d9, type: 2}
   _date: {fileID: 1601084326}
   _invested: {fileID: 1699193144}
@@ -13670,6 +13698,7 @@ MonoBehaviour:
   _textSellPrice: {fileID: 351861952}
   _textBTCSellPrice: {fileID: 727047934}
   _saveIconCanvas: {fileID: 628458499}
+  _saveIconMenu: {fileID: 628458501}
   _savePromptCanvasGroup: {fileID: 1469532670}
 --- !u!1 &1169038697
 GameObject:

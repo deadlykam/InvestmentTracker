@@ -91,6 +91,7 @@ namespace InvestmentTracker.ScriptableObjects.Scripts
             _element = null;
             _triggerTableManagerUpdate.CallDelegate();
             _triggerStockPriceManagerUpdate.CallDelegate();
+            _observersSave.Trigger();
         }
 
         public int Size() => _data.Count;
