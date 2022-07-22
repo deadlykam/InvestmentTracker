@@ -10,6 +10,7 @@ MonoImporter:
   - _defaultROIx: {fileID: 11400000, guid: de1be534e8650754d83f10b4e942b8cd, type: 2}
   - _observers: {fileID: 11400000, guid: 81a62aef15f1a91408a3ea0957eda1e9, type: 2}
   - _triggerUpdate: {fileID: 11400000, guid: 0afe536317a81164fa9bf7fe005a7b43, type: 2}
+  - _triggerUpdateData: {fileID: 11400000, guid: 867e4e90a590887409f31d89625775d9, type: 2}
   - _stockValue: {instanceID: 0}
   - _customStockValueInput: {instanceID: 0}
   - _customROIxValueInput: {instanceID: 0}

@@ -21,6 +21,6 @@ namespace InvestmentTracker.Menus
         /// This method checks if the menu is showing.
         /// </summary>
         /// <returns>True means the menu is showing, false otherwise, of type bool</returns>
-        public bool IsShown() => _mainCanvas.enabled;
+        public virtual bool IsShown() => _mainCanvas.enabled;
     }
 }
