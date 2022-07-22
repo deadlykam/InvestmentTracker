@@ -5,13 +5,13 @@ using UnityEngine;
 
 namespace InvestmentTracker.Menus
 {
-    public class AddDataMenu : BaseMenu
+    public class AddDataMenu : BaseMenuCanvasGroup
     {
         [Header("AddDataMenu Global Properties")]
         [SerializeField] private Data _data;
 
         [Header("AddDataMenu Local Properties")]
-        [SerializeField] private GameObject _screenDisabler;
+        //[SerializeField] private GameObject _screenDisabler; // Depricated
         [SerializeField] private TMP_InputField _date;
         [SerializeField] private TMP_InputField _invested;
         [SerializeField] private TMP_InputField _price;
@@ -46,7 +46,7 @@ namespace InvestmentTracker.Menus
         public override void ShowMenu()
         {
             base.ShowMenu();
-            _screenDisabler.SetActive(true);
+            //_screenDisabler.SetActive(true);
             _dateTime = DateTime.Today;
             _date.text = _dateTime.ToString("dd/MM/yyyy");
             _invested.text = "";
@@ -56,10 +56,10 @@ namespace InvestmentTracker.Menus
             _invested.Select();
         }
 
-        public override void HideMenu()
+        /*public override void HideMenu()
         {
             base.HideMenu();
             _screenDisabler.SetActive(false);
-        }
+        }*/
     }
 }

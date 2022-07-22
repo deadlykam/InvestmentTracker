@@ -68,5 +68,12 @@ namespace InvestmentTracker.Core
 
             return 0;
         }
+
+        public static bool IsFileExist(string fileName)
+        {
+            if (!_isInit) Initialize();
+            _path = $"{_persistentPath}{fileName}";
+            return File.Exists(_path);
+        }
     }
 }

@@ -14,6 +14,7 @@ namespace InvestmentTracker
         [SerializeField] private FloatFixedVariable _defaultROIx;
         [SerializeField] private ActionNoneObserver _observers;
         [SerializeField] private ActionNone _triggerUpdate;
+        [SerializeField] private ActionNone _triggerUpdateData;
 
         [Header("StockPriceManager Local Price")]
         [SerializeField] private TextMeshProUGUI _stockValue;
@@ -45,6 +46,7 @@ namespace InvestmentTracker
             _timeCur = _refreshRate;
             _rOIx.SetValue(_defaultROIx.GetValue()); // Setting the default ROIx value
             _triggerUpdate.SetDelegate(UpdateROIxValue);
+            _triggerUpdateData.SetDelegate(UpdateDataValues);
         }
 
         private void Start() => UpdateROIxValue();
@@ -93,21 +95,24 @@ namespace InvestmentTracker
             {
                 if (!_isCustomStock) _isCustomStock = true;
                 SetStockPrice();
-                _isUpdateValues = true;
-                _pointer = 0;
+                UpdateDataValues();
             }
             else
             {
                 _isCustomStock = false;
                 SetStockPrice();
-                _isUpdateValues = true;
-                _pointer = 0;
+                UpdateDataValues();
             }
         }
 
         public void SetROIxValue()
         {
             _rOIx.SetValue(float.Parse(_customROIxValueInput.text));
+            UpdateDataValues();
+        }
+
+        private void UpdateDataValues()
+        {
             _isUpdateValues = true;
             _pointer = 0;
         }

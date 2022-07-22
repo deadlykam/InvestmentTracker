@@ -5,10 +5,11 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - _mainCanvas: {instanceID: 0}
+  - _mainCanvasGroup: {instanceID: 0}
   - _data: {fileID: 11400000, guid: 6ddb874f3d997c64682e2f1e0fd95553, type: 2}
   - _listenerHighlight: {fileID: 11400000, guid: f83f53e6ee3e6bc4aac84a18f96ad6da, type: 2}
   - _observers: {fileID: 11400000, guid: 81a62aef15f1a91408a3ea0957eda1e9, type: 2}
-  - _screenDisabler: {instanceID: 0}
+  - _triggerUpdateData: {fileID: 11400000, guid: 867e4e90a590887409f31d89625775d9, type: 2}
   - _date: {instanceID: 0}
   - _invested: {instanceID: 0}
   - _price: {instanceID: 0}
