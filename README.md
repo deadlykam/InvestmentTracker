@@ -58,7 +58,7 @@ To select a data or row simply click it anywhere in the row. This will highlight
 <div align="center"><img src="https://imgur.com/TEDSxEO.png" style="width:50%;height:50%;"></div>
 
 #### Updating Data:
-To update a data or row make sure it is first selected and the orange highlighter is shown. Then click the _UPDATE_ button.
+To update a data or row make sure it is first [selected](#selecting-data) and the orange highlighter is shown. Then click the _UPDATE_ button.
 
 <div align="center"><img src="https://imgur.com/0Ssdn5R.png" style="width:50%;height:50%;"></div>
 
