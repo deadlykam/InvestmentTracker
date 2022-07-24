@@ -5,6 +5,22 @@
 ### Introduction
 This is a software that keeps track of all the investments made. For now it keeps track of BitCoin. It uses live tracking of the BitCoin price which it gets from Coinbase's json. Uses visual to help know how far up or down the investment is in.
 
+## Table of Contents:
+- [Prerequisites](#prerequisites)
+- [Stable Build](#stable-build)
+- [Installation](#installation)
+- [User Interface](#user-interface)
+- [Features](#features)
+  - [Adding Data](#add-data)
+  - [Selecting Data](#selecting-data)
+  - [Updating Data](#updating-data)
+  - [Sorting Data](#sorting-data)
+  - [Target ROI](#target-roi)
+  - [Custom Market Value](#custom-market-value)
+- [Versioning](#versioning)
+- [Authors](#authors)
+- [License](#license)
+
 ## Prerequisites
 #### Windows 10
 For now this works in Windows 10. In future will try to get it on Linux and MacOS
