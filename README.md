@@ -26,10 +26,10 @@ This is a software that keeps track of all the investments made. For now it keep
 For now this works in Windows 10. In future will try to get it on Linux and MacOS
 ***
 ## Stable Build
-[Stable-v1.0.4]() is the latest stable build of the project. If development is going to be done on this project then it is advised to branch off of any Stable branches because they will NOT be changed or update except for README.md. Any other branches are subjected to change including the main branch.
+[Stable-v1.0.4](https://github.com/deadlykam/InvestmentTracker/tree/stable-v1.0.4) is the latest stable build of the project. If development is going to be done on this project then it is advised to branch off of any Stable branches because they will NOT be changed or update except for README.md. Any other branches are subjected to change including the main branch.
 ***
 ## Installation
-1. First download the latest [InvestmentTracker.zip]() from the latest Stable build.
+1. First download the latest [InvestmentTracker.zip](https://github.com/deadlykam/InvestmentTracker/releases) from the latest Stable build.
 2. Once downloaded unzip it.
 3. After unzipping open up _InvestmentTracker.exe_
 ***
@@ -107,7 +107,7 @@ To go back to the current/live market value change the _CUSTOME VALUE_ back to _
 
 ***
 ## Versioning
-The project uses [Semantic Versioning](https://semver.org/). Available versions can be seen in [tags on this repository]().
+The project uses [Semantic Versioning](https://semver.org/). Available versions can be seen in [tags on this repository](https://github.com/deadlykam/InvestmentTracker/tags).
 ***
 ## Authors
 - Syed Shaiyan Kamran Waliullah 
