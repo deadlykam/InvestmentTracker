@@ -5713,7 +5713,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: InvestmentTracker - DefaultSave
+  m_text: InvestmentTracker 1.0.4 - DefaultSave
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6489,7 +6489,7 @@ GameObject:
   - component: {fileID: 604645793}
   - component: {fileID: 604645792}
   m_Layer: 5
-  m_Name: CustomeValueLabel
+  m_Name: CustomValueLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6534,7 +6534,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: custome value
+  m_text: custom value
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6561,7 +6561,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.8
+  m_fontSize: 29.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -13697,7 +13697,6 @@ MonoBehaviour:
   _textGain: {fileID: 221566078}
   _textSellPrice: {fileID: 351861952}
   _textBTCSellPrice: {fileID: 727047934}
-  _saveIconCanvas: {fileID: 628458499}
   _saveIconMenu: {fileID: 628458501}
   _savePromptCanvasGroup: {fileID: 1469532670}
 --- !u!1 &1169038697
